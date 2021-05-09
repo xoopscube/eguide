@@ -1,5 +1,8 @@
-<{* Dev-Mode Toggle *}>
 <div class="ui-dev-mode"><{$smarty.template}></div>
+
+<{if $mod_config.show_breadcrumbs}>
+<{include file="db:eguide_breadcrumbs.html"}>
+<{/if}>
 
 <div class="event">
     <div>

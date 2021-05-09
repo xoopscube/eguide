@@ -71,7 +71,8 @@ if ( isset( $_POST['persons'] ) ) {
 			event_notify( 'update', $tags );
 		}
 	}
-	$url = isset( $_SERVER['HTTP_REFERER'] ) ? $_SERVER['HTTP_REFERER'] : EGUIDE_URL . '/collect.php';
+	//$url = isset( $_SERVER['HTTP_REFERER'] ) ? $_SERVER['HTTP_REFERER'] : EGUIDE_URL . '/collect.php';
+	$url = $_SERVER['HTTP_REFERER'] ?? EGUIDE_URL . '/collect.php';
 	redirect_header( $url, 1, _MD_DBUPDATED );
 	exit;
 }
@@ -101,7 +102,9 @@ $result = $xoopsDB->query( 'SELECT ' . $fields . ' FROM ' . EGTBL . ' e LEFT JOI
   WHERE $cond ORDER BY edate" );
 
 include XOOPS_ROOT_PATH . '/header.php';
+
 $xoopsOption['template_main'] = EGPREFIX . '_collect.html';
+
 assign_module_css();
 
 $num = $xoopsDB->getRowsNum( $result );
@@ -143,6 +146,7 @@ if ( ! empty( $xoopsModuleConfig['time_defs'] ) ) {
 	}
 }
 ksort( $timeline );
+
 $xoopsTpl->assign( 'event', $event );
 $xoopsTpl->assign( 'peid', $peid );
 $xoopsTpl->assign( 'timeline', $timeline );
