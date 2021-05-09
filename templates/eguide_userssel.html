@@ -1,9 +1,18 @@
+<{* Dev-Mode Toggle *}>
+<div class="ui-dev-mode"><{$smarty.template}></div>
+
+<{if $mod_config.show_breadcrumbs}>
+<{include file="db:eguide_breadcrumbs.html"}>
+<{/if}>
+
 <{include file="db:eguide_item.html"}>
+
 <{if $errors}>
 <{foreach from=$errors item=msg}>
 <div class="error"><{$msg}></div>
 <{/foreach}>
 <{/if}>
+
 <{if $message}>
 <div class="entform">
     <div class="evnote"><{$message}></div>
@@ -16,7 +25,7 @@
             <{if $event.exid}>
             <input type="hidden" name="sub" value="<{$event.exid}>"/>
             <{/if}>
-            <input name="search" value="<{$smarty.get.search|escape}>"/>
+            <input type="search" name="search" value="<{$smarty.get.search|escape}>"/>
             <input type="submit" value="<{$smarty.const._SEARCH}>"/>
         </form>
     </div>
@@ -50,4 +59,5 @@
         </tr>
         <{/foreach}>
     </table>
-    <{/if}>
+
+<{/if}>

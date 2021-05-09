@@ -161,6 +161,7 @@ if ( $nrec && $op == 'csv' ) {
 }
 
 include( XOOPS_ROOT_PATH . "/header.php" );
+
 assign_module_css();
 
 if ( count( $extents ) > 1 ) {
@@ -174,6 +175,7 @@ $xoopsTpl->assign( array(
 $paths                     = array();
 $paths[ $title ]           = "event.php?eid=$eid" . ( $exid ? "&sub=$exid" : "" );
 $paths[ _MD_RESERV_ADMIN ] = "receipt.php?eid=$eid" . ( $exid ? "&sub=$exid" : "" );
+
 set_eguide_breadcrumbs( $head['topicid'], $paths );
 
 $evurl = EGUIDE_URL . "/event.php?eid=$eid" . ( $exid ? "&sub=$exid" : "" );

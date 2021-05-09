@@ -1,9 +1,16 @@
+<{* Dev-Mode Toggle *}>
+<div class="ui-dev-mode"><{$smarty.template}></div>
+<{if $mod_config.show_breadcrumbs}>
+<{include file="db:eguide_breadcrumbs.html"}>
+<{/if}>
+
 <{include file="db:eguide_item.html"}>
 <{if $errors}>
 <{foreach from=$errors item=msg}>
 <div class="error"><{$msg}></div>
 <{/foreach}>
 <{/if}>
+
 <{if $message}>
 <div class="entform">
     <div class="evnote"><{$message}></div>

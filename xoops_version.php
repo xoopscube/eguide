@@ -12,9 +12,9 @@ if ( ! file_exists( "$mydirpath/$myicon" ) ) {
 }
 
 $modversion['name']        = _MI_EGUIDE_NAME . $exname;
-$modversion['version']     = "2.71";
+$modversion['version']     = "2.74";
 $modversion['description'] = _MI_EGUIDE_DESC;
-$modversion['credits']     = "Nobuhiro Yasutomi";
+$modversion['credits']     = "Nobuhiro Yasutomi. Nuno Luciano (aka Gigamaster), 2021 XCL PHP7.";
 $modversion['author']      = "Nobuhiro Yasutomi";
 $modversion['help']        = "help.html";
 $modversion['license']     = "GPL see LICENSE";
@@ -43,6 +43,10 @@ $modversion['adminindex'] = "admin/help.php";
 $modversion['adminmenu']  = "admin/menu.php";
 
 // Templates
+$modversion['templates'][] = array(
+	'file'        => $myprefix . '_breadcrumbs.html',
+	'description' => _MI_EGUIDE_EVENT_BREADCRUMBS_TPL
+);
 $modversion['templates'][] = array(
 	'file'        => $myprefix . '_item.html',
 	'description' => _MI_EGUIDE_EVENT_ITEM_TPL
@@ -364,23 +368,32 @@ $modversion['config'][] = array(
 	'default'     => '*'
 );
 $modversion['config'][] = array(
-	'name'        => 'use_comment',
-	'title'       => '_MI_EGUIDE_COMMENT',
-	'description' => '_MI_EGUIDE_COMMENT_DESC',
+	'name'        => 'body_editor',
+	'title'       => '_MI_EGUIDE_EDITOR',
+	'description' => '_MI_EGUIDE_EDITOR_DESC',
+	'formtype'    => 'select',
+	'valuetype'   => 'text',
+	'default'     => 'xoopsdhtml',
+	//	'options'		=> array('xoopsdhtml' => 'xoopsdhtml', 'common/fckeditor' => 'common_fckeditor')
+	'options'     => [ 'xoopsdhtml' => 'xoopsdhtml' ]
+);
+
+$modversion['config'][] = array(
+	'name'        => 'show_breadcrumbs',
+	'title'       => '_MI_EGUIDE_BREADCRUMBS',
+	'description' => '_MI_EGUIDE_BREADCRUMBS_DESC',
 	'formtype'    => 'yesno',
 	'valuetype'   => 'int',
 	'default'     => 1
 );
 
 $modversion['config'][] = array(
-	'name'        => 'body_editor',
-	'title'       => '',
-	'description' => '',
-	'formtype'    => 'select',
-	'valuetype'   => 'text',
-	'default'     => 'xoopsdhtml',
-	//	'options'		=> array('xoopsdhtml' => 'xoopsdhtml', 'common/fckeditor' => 'common_fckeditor')
-	'options'     => [ 'xoopsdhtml' => 'xoopsdhtml' ]
+	'name'        => 'use_comment',
+	'title'       => '_MI_EGUIDE_COMMENT',
+	'description' => '_MI_EGUIDE_COMMENT_DESC',
+	'formtype'    => 'yesno',
+	'valuetype'   => 'int',
+	'default'     => 1
 );
 
 

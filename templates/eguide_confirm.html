@@ -1,3 +1,9 @@
+<{* Dev-Mode Toggle *}>
+<div class="ui-dev-mode"><{$smarty.template}></div>
+<{if $mod_config.show_breadcrumbs}>
+<{include file="db:eguide_breadcrumbs.html"}>
+<{/if}>
+
 <{if $event.eid}>
 <{include file="db:eguide_item.html"}>
 <{else}>
@@ -6,10 +12,12 @@
 <{if $errors}>
 <div class="error">
     <{foreach item=msg from=$errors}>
-    <{$msg}><br/>
+    <{$msg}><br>
     <{/foreach}>
 </div>
 <{/if}>
+
+<hr>
 
 <div class="evform">
     <{if $items}>
@@ -17,24 +25,24 @@
         <{foreach key=lab item=fm from=$items name=item}>
         <{if preg_match("/^-/", $items[$smarty.foreach.item.iteration].label)}>
         <{if empty($form_continue)}>
-        <tr class="<{cycle values=" even, odd"}>">
-        <td class="head"><{$fm.label}></td>
-        <td>
-            <{assign var=form_continue value=1}>
-            <{/if}>
-            <{$fm.value}>
-            <{else}>
-            <{if !empty($form_continue)}>
-            <{$fm.value}>
-        </td>
+        <tr class="<{cycle values="even, odd"}>">
+            <td class="head"><{$fm.label}></td>
+            <td>
+                <{assign var=form_continue value=1}>
+                <{/if}>
+                <{$fm.value}>
+                <{else}>
+                <{if !empty($form_continue)}>
+                <{$fm.value}>
+            </td>
         </tr>
         <{assign var=form_continue value=0}>
-        <{else}>
-        <tr class="<{cycle values="even,odd"}>">
-        <td class="head"><{$fm.label}></td>
-        <td><{$fm.value}></td>
-        </tr>
-        <{/if}>
+            <{else}>
+            <tr class="<{cycle values="even,odd"}>">
+            <td class="head"><{$fm.label}></td>
+            <td><{$fm.value}></td>
+            </tr>
+            <{/if}>
         <{/if}>
         <{/foreach}>
     </table>

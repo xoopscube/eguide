@@ -12,9 +12,6 @@ define( "_MI_EGUIDE_NAME", "イベント案内" );
 // A brief description of this module
 define( "_MI_EGUIDE_DESC", "イベント案内の掲載と、受付処理を行う" );
 
-// WYSIWYG HTML Editor
-define( "_MI_BODY_EDITOR", "HTML Editor <br><em>What You See Is What You Get</em> - this feature requires the module CKEditor" );
-
 // Names of blocks for this module (Not all module has blocks)
 define( "_MI_EGUIDE_MYLIST", "予約済みイベント" );
 define( "_MI_EGUIDE_SUBMIT", "新規イベントの登録" );
@@ -83,6 +80,10 @@ define( "_MI_EGUIDE_TIME_DEFS", "時間枠指定" );
 define( "_MI_EGUIDE_TIME_DEFS_DESC", "定員一括画面で使う時間枠を指定する。例: 08:00,14:00,16:00" );
 define( "_MI_EGUIDE_EXPORT_LIST", "予約のファイルで出力項目" );
 define( "_MI_EGUIDE_EXPORT_LIST_DESC", "フィールド名または、フィールド番号をカンマ区切りで並べて指定する。* は残りを表す。例: 3,4,0,2,*" );
+define( "_MI_EGUIDE_EDITOR", "HTML Editor" );
+define( "_MI_EGUIDE_EDITOR_DESC", "<em>What You See Is What You Get</em> - this feature requires the module CKEditor" );
+define( "_MI_EGUIDE_BREADCRUMBS", "BREADCRUMBS" );
+define( "_MI_EGUIDE_BREADCRUMBS_DESC", "BREADCRUMBS_DESC" );
 // Templates
 define( "_MI_EGUIDE_INDEX_TPL", "イベント案内トップの一覧" );
 define( "_MI_EGUIDE_EVENT_TPL", "個別イベントの詳細表示" );

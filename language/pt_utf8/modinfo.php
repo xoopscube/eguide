@@ -13,9 +13,6 @@ define( "_MI_EGUIDE_NAME", "Guia de eventos" );
 // A brief description of this module
 define( "_MI_EGUIDE_DESC", "Sistema de agendamento e vizualização detalhada de eventos" );
 
-// WYSIWYG HTML Editor
-define( "_MI_BODY_EDITOR", "HTML Editor <br><em>What You See Is What You Get</em> - this feature requires the module CKEditor" );
-
 // Names of blocks for this module (Not all module has blocks)
 define( "_MI_EGUIDE_MYLIST", "Eventos agendados" );
 define( "_MI_EGUIDE_SUBMIT", "Registrar um novo evento" );
@@ -84,6 +81,10 @@ define( "_MI_EGUIDE_TIME_DEFS", "Etiquetas da tabela do tempo" );
 define( "_MI_EGUIDE_TIME_DEFS_DESC", "Configurar a hora de início na página das configurações da coleção. Exemplo: 08:00,14:00,16:00" );
 define( "_MI_EGUIDE_EXPORT_LIST", "Lista do item na exportação dos egendamentos" );
 define( "_MI_EGUIDE_EXPORT_LIST_DESC", "Item `name' ou `number' separados por virgula(,). Asterisco(*) significa itens a esquerda. Exemplo: 3,4,0,2,*" );
+define( "_MI_EGUIDE_EDITOR", "HTML Editor" );
+define( "_MI_EGUIDE_EDITOR_DESC", "<em>What You See Is What You Get</em> - this feature requires the module CKEditor" );
+define( "_MI_EGUIDE_BREADCRUMBS", "BREADCRUMBS" );
+define( "_MI_EGUIDE_BREADCRUMBS_DESC", "BREADCRUMBS_DESC" );
 // Templates
 define( "_MI_EGUIDE_INDEX_TPL", "Lista da Guia de eventos na página inicial" );
 define( "_MI_EGUIDE_EVENT_TPL", "Detalhe do evento" );

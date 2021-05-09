@@ -1,3 +1,9 @@
+<{* Dev-Mode Toggle *}>
+<div class="ui-dev-mode"><{$smarty.template}></div>
+<{if $mod_config.show_breadcrumbs}>
+<{include file="db:eguide_breadcrumbs.html"}>
+<{/if}>
+
 <{include file="db:eguide_item.html"}>
 <{if $event.extents}>
 <div class="evform">
@@ -29,9 +35,9 @@
             <{if !$form.member_only}>
             <tr class="evms <{cycle values="even,odd"}>">
             <td class="head"><{$smarty.const._MD_EMAIL}><{$smarty.const._MD_REQUIRE_MARK}></td>
-            <td><input size="40" name="email" id="email" value="<{$form.email}>"/>
+            <td><input type="email" size="40" name="email" id="email" value="<{$form.email}>"/>
                 <{if $form.user_notify}>
-                <br/><input type="checkbox" <{if $smarty.post.notify}>checked="checked" <{/if}>name="notify"/>
+                <br><input type="checkbox" <{if $smarty.post.notify}>checked="checked" <{/if}>name="notify"/>
                 <{$smarty.const._MD_NOTIFY_REQUEST}>
                 <{/if}>
             </td>
@@ -39,7 +45,7 @@
             <{if $form.options.email_repeat_check}>
             <tr class="evms <{cycle values="even,odd"}>">
             <td class="head"><{$smarty.const._MD_EMAIL_CONF}><{$smarty.const._MD_REQUIRE_MARK}></td>
-            <td><input size="40" name="email_conf" id="email_conf" value="<{$form.email_conf}>"/>
+            <td><input type="email" size="40" name="email_conf" id="email_conf" value="<{$form.email_conf}>"/>
                 <div class="note"><{$smarty.const._MD_EMAIL_CONF_DESC}></div>
             </td>
             </tr>
@@ -154,13 +160,13 @@
 <div class="evcomment">
     <!-- start comments loop -->
     <{if $comment_mode == "flat"}>
-    <{include file="db:system_comments_flat.html"}>
+    <{include file="db:legacy_comments_flat.html"}>
     <{elseif $comment_mode == "thread"}>
-    <{include file="db:system_comments_thread.html"}>
+    <{include file="db:legacy_comments_thread.html"}>
     <{elseif $comment_mode == "nest"}>
-    <{include file="db:system_comments_nest.html"}>
+    <{include file="db:legacy_comments_nest.html"}>
     <{/if}>
     <!-- end comments loop -->
 </div>
 <{/if}>
-<{include file="db:system_notification_select.html"}>
+<{include file="db:legacy_notification_select.html"}>

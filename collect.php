@@ -157,7 +157,9 @@ if ( ! empty( $eid ) ) {
 	}
 	$catid = $event[ $eid ]['catid'];
 }
+
 $paths[ _MD_RESERV_PERSONS . _EDIT ] = "";
+
 set_eguide_breadcrumbs( $catid, $paths );
 
 include XOOPS_ROOT_PATH . '/footer.php';

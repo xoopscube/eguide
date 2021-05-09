@@ -10,9 +10,6 @@ define('_MI_EGUIDE_NAME', '活動快訊');
 // A brief description of this module
 define('_MI_EGUIDE_DESC', '公佈活動快訊以及活動報名');
 
-// WYSIWYG HTML Editor
-define( "_MI_BODY_EDITOR", "HTML Editor <br><em>What You See Is What You Get</em> - this feature requires the module CKEditor" );
-
 // Names of blocks for this module (Not all module has blocks)
 define('_MI_EGUIDE_MYLIST', '．我已參加的活動清單');
 define('_MI_EGUIDE_SUBMIT', '．新增活動訊息');
@@ -81,6 +78,10 @@ define('_MI_EGUIDE_TIME_DEFS', '時間表');
 define('_MI_EGUIDE_TIME_DEFS_DESC', '在集合頁面設定開始時間，例如：08:00,14:00,16:00');
 define('_MI_EGUIDE_EXPORT_LIST', '匯出預約資料列表');
 define('_MI_EGUIDE_EXPORT_LIST_DESC', '以項目名稱或數字組合的逗點分隔字串，星號(*) 表示剩下時間，例如： 3,4,0,2,*');
+define( "_MI_EGUIDE_EDITOR", "HTML Editor" );
+define( "_MI_EGUIDE_EDITOR_DESC", "<em>What You See Is What You Get</em> - this feature requires the module CKEditor" );
+define( "_MI_EGUIDE_BREADCRUMBS", "BREADCRUMBS" );
+define( "_MI_EGUIDE_BREADCRUMBS_DESC", "BREADCRUMBS_DESC" );
 // Templates
 define('_MI_EGUIDE_INDEX_TPL', '活動清單');
 define('_MI_EGUIDE_EVENT_TPL', '活動詳細內容');

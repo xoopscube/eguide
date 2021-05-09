@@ -71,17 +71,26 @@ if ( is_object( $module ) && $module->getVar( 'isactive' ) == 1 ) {
 }
 
 include XOOPS_ROOT_PATH . '/header.php';
+
 $xoopsOption['template_main'] = EGPREFIX . '_event.html';
+
 assign_module_css();
+
 edit_eventdata( $data );
+
 $title = $data['date'] . " " . $data['title'];
+
 set_eguide_breadcrumbs( $data['topicid'], array( $title => '' ) );
+
 $xoopsTpl->assign( 'event', $data );
+
 if ( isset( $pidate ) ) {
 	$xoopsTpl->assign( 'caldate', $pidate );
 }
+
 // page title
 $xoopsTpl->assign( 'xoops_pagetitle', $xoopsModule->getVar( 'name' ) . " | " . $title );
+
 if ( $data['closedate'] < $now ) {
 	if ( $data['reservation'] ) {
 		$xoopsTpl->assign( 'message', _MD_RESERV_CLOSE );

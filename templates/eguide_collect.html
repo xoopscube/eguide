@@ -1,38 +1,45 @@
+<{* Dev-Mode Toggle *}>
+<div class="ui-dev-mode"><{$smarty.template}></div>
+
 <table>
     <{foreach from=$event key=eid item=ev}>
     <tr>
         <td>
-            <{if count($event)>1}><a href="collect.php?eid=<{$eid}>">@</a><{/if}>
+            <{if count($event)>1}>
+            <a href="collect.php?eid=<{$eid}>" title="management">@</a>
+            <{/if}>
             <a href="event.php?eid=<{$eid}>" class="evhead"><{$ev.title}></a> (<{$smarty.const._MD_POSTDATE}>
             <{$ev.postdate}>)
         </td>
         <td>
             [
-            <a href="admin.php?eid=<{$eid}>"><{$smarty.const._EDIT}></a>
-            | <a href="export.php?eid=<{$eid}>" }><{$smarty.const._MD_EXPORT_OUT}></a>
+            <a href="admin.php?eid=<{$eid}>"><img class="svg edit" src="<{$xoops_url}>/images/icons/edit.svg" alt="edit"> <{$smarty.const._EDIT}></a>
+            | <a href="export.php?eid=<{$eid}>"><img class="svg file-excel" src="<{$xoops_url}>/images/icons/file-excel.svg" alt="file-excel"> <{$smarty.const._MD_EXPORT_OUT}></a>
             <{if $ev.exid}>
-            | <a href="editdate.php?eid=<{$eid}>" }><{$smarty.const._MD_EDIT_EXTENT}></a>
+            | <a href="editdate.php?eid=<{$eid}>"><img class="svg new" src="<{$xoops_url}>/images/icons/new.svg" alt="new"> <{$smarty.const._MD_EDIT_EXTENT}></a>
             <{/if}>
             ]
         </td>
     </tr>
     <{/foreach}>
 </table>
+
+<hr>
 <{if count($event)==1}>
-<{foreach from=$event key=eid item=ev}>
-<{if $ev.catname}>
-<a href="index.php?cat=<{$ev.catid}>">
-    <{if $ev.catimg}>
-    <img src="<{$ev.catimg}>" alt="<{$ev.catname}>" class="catbox"/>
-    <{else}>
-    <span class="catbox"><{$ev.catname}></span>
-    <{/if}>
-</a>
-<{/if}>
-<div class="evinfo"><{$smarty.const._MD_POSTERC}> <a
-        href="<{$xoops_url}>/userinfo.php?uid=<{$ev.uid}>"><{$ev.uname}></a></div>
-<p class="evbody"><{$ev.disp_summary}></p>
-<{/foreach}>
+    <{foreach from=$event key=eid item=ev}>
+        <{if $ev.catname}>
+        <a href="index.php?cat=<{$ev.catid}>">
+            <{if $ev.catimg}>
+            <img src="<{$ev.catimg}>" alt="<{$ev.catname}>" class="catbox"/>
+            <{else}>
+            <span class="catbox"><{$ev.catname}></span>
+            <{/if}>
+        </a>
+        <{/if}>
+    <div class="evinfo"><{$smarty.const._MD_POSTERC}>
+        <a href="<{$xoops_url}>/userinfo.php?uid=<{$ev.uid}>"><{$ev.uname}></a></div>
+    <div class="evbody"><{$ev.disp_summary}></div>
+    <{/foreach}>
 <{/if}>
 
 <form method="post">
@@ -44,16 +51,18 @@
             <{/foreach}>
         </tr>
         <{foreach from=$cells key=day item=cell}>
-        <tr class="<{cycle values=" even, odd
-        "}>">
+        <tr class="<{cycle values="even, odd"}>">
         <td class="head"><{$dateline[$day]}></td>
+
         <{foreach from=$timeline key=time item=disp}>
         <td align="center">
             <{if $cell[$time]}>
+
             <{foreach from=$cell[$time] item=ev}>
             <div><{$smarty.const._MD_RESERV_PERSONS}>
-                <input size="2" name="persons[<{$ev.eid}><{if $ev.exid}>-<{$ev.exid}><{/if}>]"
-                       value="<{if $ev.exid}><{$ev.expersons}><{else}><{$ev.persons}><{/if}>"/><br/>
+                <input type="number" style="width: 5em" name="persons[<{$ev.eid}><{if $ev.exid}>-<{$ev.exid}><{/if}>]"
+                       value="<{if $ev.exid}><{$ev.expersons}><{else}><{$ev.persons}><{/if}>">
+                <br>
                 <a href="entry.php?eid=<{$ev.eid}><{if $ev.exid}>&sub=<{$ev.exid}><{/if}>"
                    title="<{$ev.date}> <{$ev.title}>"><{$smarty.const._REGISTER}></a>
                 <a href="receipt.php?eid=<{$ev.eid}><{if $ev.exid}>&sub=<{$ev.exid}><{/if}>"
@@ -61,13 +70,15 @@
                 (<{$ev.reserved}>/<{$ev.persons}>)
             </div>
             <{/foreach}>
+
             <{elseif $peid}>
-            <a href="editdate.php?eid=<{$peid}>&adds=<{$day}>+<{$time}>"
-               title="<{$day}> <{$time}> <{$event[$peid].title}>"><{$smarty.const._MD_ADD_EXTENT}></a>
+            <a href="editdate.php?eid=<{$peid}>&adds=<{$day}>+<{$time}>" title="<{$day}> <{$time}> <{$event[$peid].title}>"><{$smarty.const._MD_ADD_EXTENT}></a>
             <{/if}>
         </td>
         <{/foreach}>
+
         </tr>
+
         <{/foreach}>
     </table>
     <p style="text-align:center"><input type="submit" value="<{$smarty.const._MD_UPDATE}>"></p>

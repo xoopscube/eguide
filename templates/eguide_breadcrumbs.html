@@ -1,0 +1,19 @@
+<{* Dev-Mode Toggle *}>
+<div class="ui-dev-mode"><{$smarty.template}></div>
+
+<ul class="breadcrumb" aria-label="breadcrumb">
+  <li><a href="<{$xoops_url}>/">
+    <img class="svg home" src="<{$xoops_url}>/images/icons/home.svg"></a>
+  </li>
+  <{* Smarty Truncate Modules sub-links : <{$...|truncate:32}> = Item Title...
+  This truncates a variable to a character length, the default is 80.
+  As an optional second parameter, you can specify a string of text to display at the end if the variable was truncated. *}>
+
+  <{foreach from=$xoops_breadcrumbs item="item"}>
+  <{if $item.url}>
+  <li><a href="<{$item.url}>"><{$item.name|truncate:32}></a></li>
+  <{else}>
+  <li aria-current="page"><{$item.name|truncate:32}></li>
+  <{/if}>
+  <{/foreach}>
+</ul>

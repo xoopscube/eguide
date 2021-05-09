@@ -12,9 +12,6 @@ define( "_MI_EGUIDE_NAME", "Eventos" );
 // A brief description of this module
 define( "_MI_EGUIDE_DESC", "Event Detail display and Reservation system" );
 
-// WYSIWYG HTML Editor
-define( "_MI_BODY_EDITOR", "HTML Editor <br><em>What You See Is What You Get</em> - this feature requires the module CKEditor" );
-
 // Names of blocks for this module (Not all module has blocks)
 define( "_MI_EGUIDE_MYLIST", "Reservaciones" );
 define( "_MI_EGUIDE_SUBMIT", "Registrar Nuevo Evento" );
@@ -65,7 +62,7 @@ define( "_MI_EGUIDE_CLOSEBEFORE", "Close Time Before (min)" );
 define( "_MI_EGUIDE_CLOSEBEFORE_DESC", "Event entry close time before setting minits." );
 define( "_MI_EGUIDE_LAB_PERSONS", "Additional item options" );
 define( "_MI_EGUIDE_LAB_PERSONS_DESC", "Additional item optional settings, like a field label for how many persons. Example: 'label_persons=Persons'. See <a href=\"../../eguide/admin/help.php#form_options\">about eguide page</a> more details." );
-define( "_MI_EGUIDE_DATE_FORMAT", "Date Foramt" );
+define( "_MI_EGUIDE_DATE_FORMAT", "Date Format" );
 define( "_MI_EGUIDE_DATE_FORMAT_DESC", "Open Event Date(Time) display format. Using PHP date function format." );
 define( "_MI_EGUIDE_DATE_FORMAT_DEF", "D, d M Y" );
 define( "_MI_EGUIDE_EXPIRE_AFTER", "Expire Time" );
@@ -83,6 +80,10 @@ define( "_MI_EGUIDE_TIME_DEFS", "Time Table Labels" );
 define( "_MI_EGUIDE_TIME_DEFS_DESC", "Set starting time in Settings collection page. e.g.: 08:00,14:00,16:00" );
 define( "_MI_EGUIDE_EXPORT_LIST", "Item List in export reservations" );
 define( "_MI_EGUIDE_EXPORT_LIST_DESC", "Item `name' or `number' seperated comma(,). Astarisk(*) mean left items. e.g.: 3,4,0,2,*" );
+define( "_MI_EGUIDE_EDITOR", "HTML Editor" );
+define( "_MI_EGUIDE_EDITOR_DESC", "<em>What You See Is What You Get</em> - this feature requires the module CKEditor" );
+define( "_MI_EGUIDE_BREADCRUMBS", "BREADCRUMBS" );
+define( "_MI_EGUIDE_BREADCRUMBS_DESC", "BREADCRUMBS_DESC" );
 // Templates
 define( "_MI_EGUIDE_INDEX_TPL", "Event Guide Top page list" );
 define( "_MI_EGUIDE_EVENT_TPL", "Detail of Event" );

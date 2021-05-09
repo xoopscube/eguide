@@ -11,9 +11,6 @@ define("_MI_EGUIDE_NAME","Veranstaltungskalender");
 // A brief description of this module
 define("_MI_EGUIDE_DESC","Veranstaltungskalender mit Online-Reservierung");
 
-// WYSIWYG HTML Editor
-define( "_MI_BODY_EDITOR", "HTML Editor <br><em>What You See Is What You Get</em> - this feature requires the module CKEditor" );
-
 // Names of blocks for this module (Not all module has blocks)
 define("_MI_EGUIDE_MYLIST","Meine Reservierungen");
 define("_MI_EGUIDE_SUBMIT","Neue Veranstaltung eintragen");
@@ -82,6 +79,11 @@ define("_MI_EGUIDE_TIME_DEFS","Zeittabellenbeschriftung");
 define("_MI_EGUIDE_TIME_DEFS_DESC","Set starting time in Settings collection page. e.g.: 08:00,14:00,16:00");
 define("_MI_EGUIDE_EXPORT_LIST","Item List in export reservation");
 define("_MI_EGUIDE_EXPORT_LIST_DESC","Item `name' or `number' seperated comma(,). Astarisk(*) mean left items. e.g.: 3,4,0,2,*");
+define( "_MI_EGUIDE_EDITOR", "HTML Editor" );
+define( "_MI_EGUIDE_EDITOR_DESC", "<em>What You See Is What You Get</em> - this feature requires the module CKEditor" );
+define( "_MI_EGUIDE_BREADCRUMBS", "BREADCRUMBS" );
+define( "_MI_EGUIDE_BREADCRUMBS_DESC", "BREADCRUMBS_DESC" );
+
 // Templates
 define("_MI_EGUIDE_INDEX_TPL", "Event Guide Top page list");
 define("_MI_EGUIDE_EVENT_TPL", "Details des Events");

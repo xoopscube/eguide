@@ -1,9 +1,15 @@
+<{* Dev-Mode Toggle *}>
+<div class="ui-dev-mode"><{$smarty.template}></div>
+<{if $mod_config.show_breadcrumbs}>
+<{include file="db:eguide_breadcrumbs.html"}>
+<{/if}>
+
 <{if $errors}>
 <{foreach from=$errors item=msg}>
 <div class="error"><{$msg}></div>
 <{/foreach}>
-
 <{/if}>
+
 <table>
     <tr>
         <td>
@@ -11,12 +17,13 @@
             <{$event.postdate}>)
         </td>
         <td>
-            [ <a href="admin.php?eid=<{$event.eid}>"><{$smarty.const._EDIT}></a>
-            | <a href="export.php?eid=<{$event.eid}>" }><{$smarty.const._MD_EXPORT_OUT}></a>
+            [ <a href="admin.php?eid=<{$event.eid}>"><img class="svg edit" src="<{$xoops_url}>/images/icons/edit.svg" alt="edit"><{$smarty.const._EDIT}></a>
+            | <a href="export.php?eid=<{$event.eid}>"><img class="svg file-excel" src="<{$xoops_url}>/images/icons/file-excel.svg" alt="file-excel"><{$smarty.const._MD_EXPORT_OUT}></a>
             | <a href="collect.php?eid=<{$event.eid}>"><{$smarty.const._MD_SUMMARY}></a> ]
         </td>
     </tr>
 </table>
+
 <{if $event.catname}>
 <a href="index.php?cat=<{$event.catid}>">
     <{if $event.catimg}>
@@ -26,11 +33,16 @@
     <{/if}>
 </a>
 <{/if}>
-<div class="evinfo"><{$smarty.const._MD_POSTERC}> <a href="<{$xoops_url}>/userinfo.php?uid=<{$event.uid}>"><{$event.uname}></a>
+
+<div class="evinfo"><{$smarty.const._MD_POSTERC}>
+    <a href="<{$xoops_url}>/userinfo.php?uid=<{$event.uid}>"><{$event.uname}></a>
 </div>
-<p class="evbody"><{$event.disp_summary}></p>
+
+<div class="evbody"><{$event.disp_summary}></div>
+
 <form method="post">
     <div><{$smarty.const._MD_RESERV_PERSONS}>: <{$event.persons}><{$smarty.const._MD_RESERV_UNIT}></div>
+
     <table class="outer">
         <tr>
             <th align="center"><{$labels[0]}></th>
@@ -39,7 +51,7 @@
             <th><{$labels[3]}></th>
         </tr>
         <{foreach from=$extents item=ext}>
-        <tr class="<{cycle values=" even, odd"}>">
+        <tr class="<{cycle values="even, odd"}>">
         <td align="center">
             <{if $ext.reserved}>-<{else}>
             <input type="checkbox" name="dels[<{$ext.exid}>]" value="<{$ext.exid}>"/><{/if}>

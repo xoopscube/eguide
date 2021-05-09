@@ -531,7 +531,8 @@ function get_eguide_category( $all = true, $indent = '' ) {
 }
 
 function set_eguide_breadcrumbs( $catid = 0, $paths = array() ) {
-	global $xoopsModule, $xoopsTpl;
+	global $xoopsModule, $xoopsModuleConfig, $xoopsTpl;
+
 	$modurl      = EGUIDE_URL . '/';
 	$breadcrumbs = array( array( 'name' => $xoopsModule->getVar( 'name' ), 'url' => $modurl ) );
 	$catlist     = get_eguide_category( $catid );
@@ -553,8 +554,15 @@ function set_eguide_breadcrumbs( $catid = 0, $paths = array() ) {
 			'url'  => empty( $path ) ? '' : "$modurl$path"
 		);
 	}
-	$xoopsTpl->assign( 'xoops_breadcrumbs', $breadcrumbs );
+	$xoopsTpl->assign(
+		[
+			'xoops_breadcrumbs'=> $breadcrumbs,
+			'mod_config'     => $xoopsModuleConfig,
+		]
+	);
+
 }
+
 
 // fetch event data set
 function fetch_event( $eid, $exid, $admin = false ) {

@@ -34,10 +34,13 @@ $iargs = array(
 	'persons',
 	'style'
 ); // integer value default '0'
+
 $targs = array( 'title', 'summary', 'body', 'optfield', 'before' );
+
 define( "_EG_OPTDEFS", "redirect=" . _MD_RESERV_REDIRECT . ",text\n" );
 
 $myts                         =& MyTextSanitizer::getInstance();
+
 $xoopsOption['template_main'] = EGPREFIX . '_admin.html';
 
 if ( $op == 'new' ) {
@@ -136,7 +139,8 @@ if ( $eid ) {            // already exists extents
 			$step = $step * 7;
 		case 'daily':
 			for ( $n = 0, $i = $edate; $n < $repeat; $n ++, $i += $step ) {
-				$v             = $init ? true : isset( $sets[ $n ] );
+				//$v             = $init ? true : isset( $sets[ $n ] );
+				$v             = $init || isset( $sets[ $n ] );
 				$extent_sets[] =
 					array(
 						'exdate'  => $i,
@@ -151,7 +155,8 @@ if ( $eid ) {            // already exists extents
 			list( $y, $m, $d, $h, $mi ) = explode( ' ', formatTimestamp( $edate, "Y m j G i" ) );
 			for ( $n = 0; $n < $repeat; $n ++ ) {
 				$i             = userTimeToServerTime( mktime( $h, $mi, 0, $m + $n, $d, $y ) );
-				$v             = $init ? true : isset( $sets[ $n ] );
+				//$v             = $init ? true : isset( $sets[ $n ] );
+				$v             = $init || isset( $sets[ $n ] );
 				$extent_sets[] =
 					array(
 						'exdate'  => $i,
@@ -398,7 +403,7 @@ if ( $eid && $op == 'delete' ) {
 			$event[ $name ] = $data[ $name ];
 		}
 		edit_eventdata( $event );
-		$form                = eventform( $data );
+		$form                = eventform( $uid, $data );
 		$form['submit_opts'] = 'disabled';
 		$xoopsTpl->assign( 'form', $form );
 		$xoopsTpl->assign( 'event', $event );
@@ -519,9 +524,6 @@ function datefield( $prefix, $time, $hastime = true ) {
 	});
 	</script>";
 	$buf .= "<input type='text' id='${prefix}ymd' name='${prefix}ymd' size='12' value='" . formatTimestamp( $time, "Y-m-d" ) . "'> - " . _MD_CAL . " -";
-//	$buf .= "<script language='javascript'><!--
-//document.write('<input type=\"button\" value=\"" . _MD_CAL . "\" onClick=\"showCalendar(\\'${prefix}ymd\\')\">');
-//--></script>\n";
 
 	return $buf;
 }

@@ -18,15 +18,22 @@ if ( ! $event ) {
 }
 
 include XOOPS_ROOT_PATH . '/header.php';
+
 $xoopsOption['template_main'] = EGPREFIX . '_editdate.html';
+
 assign_module_css();
+
 $edate = $event['edate'];
+
 $xoopsTpl->assign( 'event', edit_eventdata( $event ) );
+
 $paths = array();
 if ( ! empty( $event['title'] ) ) {
 	$paths[ $event['title'] ] = "event.php?eid=$eid";
 }
+
 $paths[ _MD_EDIT_EXTENT ] = "editdate.php?eid=$eid";
+
 set_eguide_breadcrumbs( $event['catid'], $paths );
 
 $myts    =& MyTextSanitizer::getInstance();

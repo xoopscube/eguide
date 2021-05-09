@@ -1,11 +1,16 @@
-<!--<div class="evlist">-->
+<{* Dev-Mode Toggle *}>
+<div class="ui-dev-mode"><{$smarty.template}></div>
+<{if $mod_config.show_breadcrumbs}>
+<{include file="db:eguide_breadcrumbs.html"}>
+<{/if}>
 
+<!--<div class="evlist">-->
     <table>
         <tr>
             <td><a href="event.php?eid=<{$eid}><{if $exid}>&amp;sub=<{$exid}><{/if}>" class="evhead"><{$title}></a></td>
             <td>
-                [ <a href="admin.php?eid=<{$eid}>"><{$smarty.const._EDIT}></a>
-                <{if $exid}>| <a href="editdate.php?eid=<{$eid}>"><{$smarty.const._MD_EDIT_EXTENT}></a><{/if}>
+                [ <a href="admin.php?eid=<{$eid}>"><img class="svg edit" src="<{$xoops_url}>/images/icons/edit.svg" alt="edit"> <{$smarty.const._EDIT}></a>
+                <{if $exid}>| <a href="editdate.php?eid=<{$eid}>"><img class="svg date-edit" src="<{$xoops_url}>/images/icons/date-edit.svg" alt="edit"><{$smarty.const._MD_EDIT_EXTENT}></a><{/if}>
                 ]
             </td>
         </tr>
@@ -38,7 +43,7 @@
         <tr>
             <td>[ <a href="entry.php?eid=<{$eid}><{if $exid}>&amp;sub=<{$exid}><{/if}>"><{$smarty.const._MD_RESERV_REGISTER}></a>
                 ] &nbsp;
-                <{$smarty.const._MD_ORDER_COUNT}> <{$order_count}> (<{$reserv_num}>)
+                <span class="badge"><{$smarty.const._MD_ORDER_COUNT}> <{$order_count}></span> (<{$reserv_num}>)
             </td>
             <td align="right"><{$smarty.const._MD_PRINT_DATE}> <{$print_date}></td>
         </tr>
@@ -61,9 +66,9 @@
                     <{if $order.confirm}>
                     <input type="checkbox" name="act[]" value="<{$order.rvid}>" checked>
                     <{/if}>
-                    <a href="receipt.php?rvid=<{$order.rvid}>"><{$smarty.const._MD_DETAIL}></a> |
-                    <a href="receipt.php?op=edit&rvid=<{$order.rvid}>"><{$smarty.const._EDIT}></a> |
-                    <a href="reserv.php?op=cancel&rvid=<{$order.rvid}>"><{$smarty.const._DELETE}></a>
+                    <a href="receipt.php?rvid=<{$order.rvid}>"><img class="svg date-view" src="<{$xoops_url}>/images/icons/view.svg" alt="view"> <{$smarty.const._MD_DETAIL}></a> |
+                    <a href="receipt.php?op=edit&rvid=<{$order.rvid}>"><img class="svg edit" src="<{$xoops_url}>/images/icons/edit.svg" alt="edit"> <{$smarty.const._EDIT}></a> |
+                    <a href="reserv.php?op=cancel&rvid=<{$order.rvid}>"><img class="svg delete" src="<{$xoops_url}>/images/icons/delete.svg" alt="delete"> <{$smarty.const._DELETE}></a>
                 </td>
                 <td><{$order.date}></td>
                 <td><{$order.stat}></td>
@@ -108,12 +113,12 @@
 
     <p align='right'>
         [
-        <a href="receipt.php?op=csv&amp;eid=<{$eid}><{if $exid}>&amp;sub=<{$exid}><{/if}>"><{$smarty.const._MD_CSV_OUT}></a>
-        | <a href="export.php?eid=<{$eid}><{if $exid}>&amp;sub=<{$exid}><{/if}>"><{$smarty.const._MD_EXPORT_OUT}></a>
-        | <a href="sendinfo.php?eid=<{$eid}><{if $exid}>&amp;sub=<{$exid}><{/if}>"><{$smarty.const._MD_INFO_MAIL}></a>
+        <a href="receipt.php?op=csv&amp;eid=<{$eid}><{if $exid}>&amp;sub=<{$exid}><{/if}>"><img class="svg file" src="<{$xoops_url}>/images/icons/file.svg" alt="file"> <{$smarty.const._MD_CSV_OUT}></a>
+        | <a href="export.php?eid=<{$eid}><{if $exid}>&amp;sub=<{$exid}><{/if}>"><img class="svg file-excelt" src="<{$xoops_url}>/images/icons/file-excel.svg" alt="file-excel"> <{$smarty.const._MD_EXPORT_OUT}></a>
+        | <a href="sendinfo.php?eid=<{$eid}><{if $exid}>&amp;sub=<{$exid}><{/if}>"><img class="svg email" src="<{$xoops_url}>/images/icons/email.svg" alt="email"><{$smarty.const._MD_INFO_MAIL}></a>
         ]
-        <a href="receipt.php?op=print&amp;eid=<{$eid}><{if $exid}>&amp;sub=<{$exid}><{/if}>"><img
-                src="images/printer.png" alt="<{$smarty.const._PRINT}>" border="0"/></a>
+        <a href="receipt.php?op=print&amp;eid=<{$eid}><{if $exid}>&amp;sub=<{$exid}><{/if}>" title="<{$smarty.const._PRINT}>">
+            <img class="svg print" src="<{$xoops_url}>/images/icons/print.svg" alt="print"></a>
     </p>
     <{else}>
     <p class='evnote'><{$smarty.const._MD_NODATA}></p>
