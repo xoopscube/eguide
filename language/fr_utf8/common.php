@@ -1,13 +1,13 @@
 <?php
-# user/admin common use resources
-# $Id: common.php,v 1.1 2008/02/02 05:54:11 nobu Exp $
+// Event Guide Module Administration message catalogue
+// French UTF-8 @gigamaster
 
-define( "_MD_ORDER_DATE", "Order Date" );
-define( "_MD_CSV_OUT", "CSV Format" );
-define( '_MD_EXTENT_DATE', 'Open Date' );
-define( '_MD_RESERV_PERSONS', 'Max no. of Persons' );
-define( "_MD_INFO_REQUEST", "Notify Registered users" );
-define( "_MD_INFO_COUNT", "count %d" );
+define('_MD_ORDER_DATE','Ordonner par date');
+define('_MD_CSV_OUT','Format CSV');
+define('_MD_EXTENT_DATE','Date Ouverte');
+define('_MD_RESERV_PERSONS','Nombre max de personnes');
+define('_MD_INFO_REQUEST','Notifier les uilisateurs enregistrés');
+define('_MD_INFO_COUNT','compte %d ');
 
 global $expire_set, $edit_style, $ev_stats, $ev_extents, $rv_stats;
 

@@ -1,5 +1,6 @@
 <?php
-// $Id: blocks.php,v 1.9 2010/02/27 07:07:34 nobu Exp $
+// Event Guide Module Administration message catalogue
+// French UTF-8 @gigamaster
 
 if ( defined( "_BLOCK_DATE_FMT" ) ) {
 	return;
@@ -7,13 +8,13 @@ if ( defined( "_BLOCK_DATE_FMT" ) ) {
 
 // Blocks
 define( "_BLOCK_DATE_FMT", "m/d" );
-define( "_BLOCK_EV_POST", "Posted" );
-define( "_BLOCK_EV_WAIT", "New Events" );
-define( "_BLOCK_EV_STYLE", "Display Full" );
-define( "_BLOCK_EV_ITEMS", "Display events in block" );
-define( "_BLOCK_EV_TRIM", "Limit length title strings" );
-define( "_BLOCK_EV_NONE", "There are currently NO events" );
-define( "_BLOCK_EV_LISTTYPE", "List type" );
-define( "_BLOCK_EV_TYPES", "All|Recent|Finish" );
-define( "_BLOCK_EV_CATEGORY", "Category" );
-define( "_BLOCK_EV_MORE", "more..." );
+define('_BLOCK_EV_POST','Posté');
+define('_BLOCK_EV_WAIT','Nouvel Événement');
+define('_BLOCK_EV_STYLE','Affichage plein écran');
+define('_BLOCK_EV_ITEMS','Affichage des événements en blocs');
+define('_BLOCK_EV_TRIM','Limite de la longueur du titre');
+define('_BLOCK_EV_NONE','Il n\'y a actuellement PAS d\'événements');
+define('_BLOCK_EV_LISTTYPE','Type de liste');
+define('_BLOCK_EV_TYPES','Tous | Récent | Terminé');
+define('_BLOCK_EV_CATEGORY','Catégorie');
+define('_BLOCK_EV_MORE','plus...');

@@ -1,194 +1,198 @@
 <?php
-// $Id: main.php,v 1.28 2010/10/10 06:30:12 nobu Exp $
+// Event Guide Module Administration message catalogue
+// French UTF-8 @gigamaster
 
 if ( defined( '_MD_RESERV_FORM' ) ) {
 	return;
 }
 
-define( "_MD_RESERV_FORM", "Reservation Here" );
-define( "_MD_RESERVATION", "Make a Reservation" );
-define( "_MD_NAME", "/^Name\\*?\$/" );
+define('_MD_RESERV_FORM','Réserver ici');
+define('_MD_RESERVATION','Faire une réservation');
+define('_MD_NAME',' 	 /^Nom\*?$/ ');
 define( '_MD_SDATE_FMT', 'D, j M Y' );
 define( '_MD_STIME_FMT', 'H:i' );
-// Localization Transrate Weekly date name
+// Localization Translate Weekly date name
 //global $ev_week;
 //$ev_week = array('Sun'=>'S', 'Mon'=>'M','Tue'=>'T', 'Wed'=>'W','Thu'=>'U','Fri'=>'F', 'Sat'=>'A');
 define( "_MD_POSTED_FMT", "j M Y H:i" );
 define( "_MD_TIME_FMT", "j M Y H:i" );
-define( "_MD_READMORE", "More..." );
-define( "_MD_EMAIL", "EMail Address" );
-define( "_MD_EMAIL_CONF", "Confirm EMail Address" );
-define( '_MD_EMAIL_CONF_DESC', 'Please enter your email address again for confirmation' );
-define( '_MD_UNAME', 'Username' );
-define( "_MD_SUBJECT", "Confirm - {EVENT_DATE} {EVENT_TITLE}" );
-define( "_MD_NOTIFY_EVENT", "Notification of new events" );
-define( "_MD_NOTIFY_REQUEST", "Notify me by mail when other new events are posted" );
+define('_MD_READMORE','Plus...');
+define('_MD_EMAIL','Adresse Email');
+define('_MD_EMAIL_CONF','Confirmer Adresse Email');
+define('_MD_EMAIL_CONF_DESC','Entrer à nouveau l\'adresse email pour confirmer');
+define('_MD_UNAME','Nom d\'utilisateur');
+define('_MD_SUBJECT',' Confirmer - {EVENT_DATE} {EVENT_TITLE}');
+define('_MD_NOTIFY_EVENT','Notification des nouveaux événements');
+define('_MD_NOTIFY_REQUEST','Notifier par email quand de nouveaux événements sont postés');
 define( '_MD_REQUIRE_MARK', '<em>*</em>' );
 define( '_MD_LISTITEM_FMT', '[%s]' );
-define( "_MD_ORDER_NOTE1", "'" . _MD_REQUIRE_MARK . "'required items. " );
-define( "_MD_ORDER_NOTE2", "'[ ]' item to be displayed on list of participants." );
-define( '_MD_ORDER_SEND', 'Reservation' );
-define( '_MD_ORDER_CONF', 'Go to Confirm' );
+define( "_MD_ORDER_NOTE1", "'" . _MD_REQUIRE_MARK . "' éléments requis." );
+define('_MD_ORDER_NOTE2',' \'[ ]\' objet affiché pour la liste de participants.');
+define('_MD_ORDER_SEND','Réservation');
+define('_MD_ORDER_CONF','Confirmer');
 
-define( "_MD_EVENT_NONE", "There is no event guide" );
-define( "_MD_BACK", "Back" );
-define( "_MD_RESERVED", "This is a reservation only" );
-define( "_MD_RESERV_NUM", "Max. no of Places %d" );
-define( "_MD_RESERV_REG", "Currently Reserved Places %d" );
-define( "_PRINT", "Print" );
+define('_MD_EVENT_NONE','Il n\'y a pas de guide d\'événement');
+define('_MD_BACK','Retour');
+define('_MD_RESERVED','Il n\'y a qu\'une réservation');
+define('_MD_RESERV_NUM','Nombre de places max %d ');
+define('_MD_RESERV_REG','Places déjà réservées %d');
+define('_PRINT','Imprimer');
 
-define( "_MD_NOITEM_ERR", "No input, please enter a value." );
-define( "_MD_NUMITEM_ERR", "Needs to be numeric" );
-define( "_MD_MAIL_ERR", "Mail address format error" );
-define( '_MD_MAIL_CONF_ERR', 'Confirm email address do not match' );
-define( "_MD_SEND_ERR", "failed to send mail" );
-define( "_MD_DUP_ERR", "We have already reserved a place with your mail address" );
-define( '_MD_DATE_ERR', 'The Date is out of range' );
-define( '_MD_DATEDELETE_ERR', 'Stop remove the date, there is reservation exists' );
-define( "_MD_DUP_REGISTER", "Mail notification was already registered" );
-define( "_MD_REGISTERED", "Mail notification registered" );
+define('_MD_NOITEM_ERR','Pas d\'entrée, ajouter une valeur');
+define('_MD_NUMITEM_ERR','Uniquement des nombres');
+define('_MD_MAIL_ERR','Erreur du format d\'adresse email');
+define('_MD_MAIL_CONF_ERR','L\'adresse email n\'est pas la même');
+define('_MD_SEND_ERR','Échec de l\'envoi du mail');
+define('_MD_DUP_ERR','Une réservation existe déjà avec ce courriel');
+define('_MD_DATE_ERR','La date est passée');
+define('_MD_DATEDELETE_ERR','Il y a déjà des réservations, ne pas supprimer la date.');
+define('_MD_DUP_REGISTER','La notification par email est déjà enregistrée');
+define('_MD_REGISTERED','Notification par email enregistrée');
 
-define( "_MD_RESERV_ACCEPT", "Sending confirmation email" );
-define( "_MD_RESERV_STOP", "Reservations have been halted." );
-define( "_MD_RESERV_CONF", "Order information" );
-define( "_MD_RESERV_ADMIN", "Reservation list" );
-define( "_MD_RESERV_REGISTER", "Confirm pending reservation" );
+define('_MD_RESERV_ACCEPT','Envoi du mail de confirmation');
+define('_MD_RESERV_STOP','Les réservations sont interrompues');
+define('_MD_RESERV_CONF','Information de la Commande');
+define('_MD_RESERV_ADMIN','Liste des Réservations');
+define('_MD_RESERV_REGISTER','Réservations enregistrées');
 
-define( "_MD_RESERV_ACTIVE", " is accepted." );
-define( "_MD_RESERV_REFUSE", " is refused." );
+define('_MD_RESERV_ACTIVE',' est accepté.');
+define('_MD_RESERV_REFUSE',' est refusé.');
 
-define( "_AM_MAILGOOD", "Success: %s" );
-define( "_AM_SENDMAILNG", "Failure: %s" );
+define('_AM_MAILGOOD','Succès : %s');
+define('_AM_SENDMAILNG','Échec : %s');
 
-define( "_MD_RESERV_NOTFOUND", "No reservation or Allready cancelled." );
-define( "_MD_RESERV_CANCEL", "Are you sure you want to cancel?" );
-define( "_MD_RESERV_CANCELED", "Event reservation has been canceled" );
-define( "_MD_RESERV_NOCANCEL", "Can't cancel reservation after close time" );
-define( "_MD_RESERV_NOTIFY", "%s\n\nOrdering Email: %s\nReservation Event: %s\n  %s\n" );
-define( "_MD_RESERV_FULL", "Reservations have been stopped, because the event is now fully booked." );
-define( '_MD_RESERV_TOMATCH', ' %d is too match (%d left)' );
-define( '_MD_RESERV_CLOSE', 'The registration process for the event is now closed.' );
-define( '_MD_RESERV_NEEDLOGIN', 'You need <a href="' . XOOPS_URL . '/user.php">login</a>, when reservation this' );
-define( '_MD_RESERV_PLUGIN_FAIL', 'Plugin fail to process the reservation' );
-define( "_MD_CANCEL_FAIL", "Failed to cancel" );
-define( "_MD_NODATA", "There is No Data" );
-define( "_MD_NOEVENT", "No Event Listed" );
-define( "_MD_SHOW_PREV", "Previous Events" );
-define( "_MD_SHOW_NEXT", "Upcoming Events" );
+define('_MD_RESERV_NOTFOUND','Pas de réservations ou déjà annulées');
+define('_MD_RESERV_CANCEL','Annuler définitivement ?');
+define('_MD_RESERV_CANCELED','Les réservations ont été annulées');
+define('_MD_RESERV_NOCANCEL','Impossible d\'annuler une réservation après la fermeture.');
+//define( "_MD_RESERV_NOTIFY", "%s\n\nOrdering Email: %s\nReservation Event: %s\n  %s\n" );
+define('_MD_RESERV_NOTIFY','%s Ordre Email : %s Réservation Événement : %s %s ');
+define('_MD_RESERV_FULL','Les réservations ne sont plus disponibles car l\'événement est complet.');
+//define( '_MD_RESERV_TOMATCH', ' %d is too match (%d left)' );
+define('_MD_RESERV_TOMATCH',' %d dépasse la limite (%d restant) ');
+define('_MD_RESERV_CLOSE','Finir la réservation');
+define('_MD_RESERV_NEEDLOGIN','Il faut <a href="' . XOOPS_URL . '/user.php">se connecter</a>pour réserver.');
+define( '_MD_RESERV_PLUGIN_FAIL', 'Not enough condition for reservation' );
+define('_MD_CANCEL_FAIL','Échec de l\'annulation');
+define('_MD_NODATA','Il n\'y a pas de données');
+define('_MD_NOEVENT','Pas d\'Événements listés');
+define('_MD_SHOW_PREV','Événements Précédents');
+define('_MD_SHOW_NEXT','Événements à venir');
 
-define( "_MD_POSTERC", "Poster" );
-define( '_MD_POSTDATE', 'Registered' );
-define( '_MD_STARTTIME', 'Starting Event' );
-define( '_MD_CLOSEDATE', 'Close Reservation' );
-define( '_MD_CLOSEBEFORE', 'Close time to register' );
-define( '_MD_CLOSEBEFORE_DESC', 'before event starts (e.g.: 3days, 2hour, 50min)' );
-define( '_MD_TIME_UNIT', 'days,hour,min' );
-define( '_MD_TIME_REG', 'd(ay)?s?,h(our)?,min' );
-define( '_MD_CALENDAR', 'Go Calendar' );
-define( '_MD_CAL', 'Calendar' );
-define( '_MD_CAL_MONDAY_FIRST', true );
-define( "_MD_REFER", "%d hits" );
-define( "_MD_RESERV_LIST", "List of participants" );
+define('_MD_POSTERC','Auteur');
+define('_MD_POSTDATE','Enregistré');
+define('_MD_STARTTIME','Événement qui commence');
+define('_MD_CLOSEDATE','Réservation fermée');
+define('_MD_CLOSEBEFORE','Fermer l\'inscription avant');
+define('_MD_CLOSEBEFORE_DESC','avant le début (e.g.: 3days, 2hour, 50min)');
+define('_MD_TIME_UNIT','jours,heure,min');
+define('_MD_TIME_REG',' j(our)?s?,h(eure)?,min ');
+define('_MD_CALENDAR','Aller au Calendrier');
+define('_MD_CAL','Calendrier');
+define('_MD_CAL_MONDAY_FIRST','1');
+define('_MD_REFER',' %d visites');
+define('_MD_RESERV_LIST','Liste des participants');
 
-define( '_MD_NEED_UPGRADE', 'Need to Proceed module Upgrade' );
+define('_MD_NEED_UPGRADE','Le module doit être mise à jour');
 
 //%%%%%%	File Name receiept.php 	%%%%%
-define( "_MD_RESERV_EDIT", "Edit Reservations" );
-define( "_MD_OPERATION", "Operation" );
-define( "_MD_STATUS", "Status" );
-define( "_MD_RESERV_RETURN", "Return to list" );
-define( "_MD_RESERV_REC", "Reservation Records" );
-define( "_MD_RVID", "Reservation ID" );
-define( "_MD_ORDER_COUNT", "Count" );
-define( "_MD_PRINT_DATE", "Print Date" );
-define( "_MD_SAVECHANGE", "Save Changes" );
-define( "_MD_RESERV_DEL", "Delete reservation" );
-define( "_MD_DETAIL", "Detail" );
-define( "_MD_RESERV_MSG_H", "Sending message for reservation" );
-define( "_MD_ACTIVATE", "Approved" );
-define( "_MD_REFUSE", "Refused" );
-define( "_MD_EXPORT_OUT", "Excel Format" );
+define('_MD_RESERV_EDIT','Éditer les Réservations');
+define('_MD_OPERATION','Opération');
+define('_MD_STATUS','Status');
+define('_MD_RESERV_RETURN','Retour à la liste');
+define('_MD_RESERV_REC','Registre des Réservations');
+define('_MD_RVID','ID de Réservation');
+define('_MD_ORDER_COUNT','nombre de commandes');
+define('_MD_PRINT_DATE','Date d\'impression');
+define('_MD_SAVECHANGE','Sauvegarder les changements');
+define('_MD_RESERV_DEL','Supprimer la réservation');
+define('_MD_DETAIL','Détail');
+define('_MD_RESERV_MSG_H','Envoi d\'un message de réservation');
+define('_MD_ACTIVATE','Approuvé');
+define('_MD_REFUSE','Refusé');
+define('_MD_EXPORT_OUT','Format Excel');
 define( '_MD_EXPORT_CHARSET', 'UTF-8' );
-define( "_MD_INFO_MAIL", "Sending Mail" );
-define( "_MD_SUMMARY", "Summary" );
-define( "_MD_SUM_ITEM", "Summary Item" );
-define( "_MD_SUM", "Sum" );
+define('_MD_INFO_MAIL','Envoi du mail');
+define('_MD_SUMMARY','Description');
+define('_MD_SUM_ITEM','Elément de la description');
+define('_MD_SUM','Résumé');
 
 //%%%%%%	File Name admin.php 	%%%%%
-define( "_MD_EDITARTICLE", "Edit an Event" );
-define( "_MD_NEWTITLE", "New Event" );
-define( "_MD_NEWSUB", "New Event - {EVENT_DATE} {EVENT_TITLE}" );
-define( "_MD_TITLE", "Title" );
-define( "_MD_EVENT_DATE", "Event Date Time" );
-define( "_MD_EVENT_EXPIRE", "Finish Display" );
-define( '_MD_EVENT_EXTENT', 'Repeat Open' );
-define( '_MD_EVENT_CATEGORY', 'Category' );
-define( '_MD_EDIT_EXTENT', 'Edit Open Date' );
-define( '_MD_EXTENT_REPEAT', 'Repeats' );
-define( '_MD_ADD_EXTENT', 'Add Open Date' );
-define( '_MD_ADD_EXTENT_DESC', 'Additional Open Date Time in "YYYY-MM-DD HH:MM" format (Multiple entry separate in newline)' );
-define( "_MD_INTROTEXT", "Introduction Text" );
-define( "_MD_EXTEXT", "Description" );
-define( "_MD_EVENT_STYLE", "Output Style" );
-define( '_MD_RESERV_SETTING', 'Reservation' );
-define( "_MD_RESERV_DESC", "Allow reservations to proceed" );
-define( '_MD_RESERV_STOPFULL', 'Stop reservations when limit reached' );
-define( "_MD_RESERV_AUTO", "Automatically accept reservations (No need approve)" );
-define( '_MD_RESERV_NOTIFYPOSTER', 'Reservation notify by mail' );
-define( '_MD_RESERV_UNIT', '' );
-define( '_MD_RESERV_ITEM', 'Additional Items' );
-define( '_MD_RESERV_LAB', 'Item name' );
-define( '_MD_RESERV_LABREQ', 'Please input item name' );
-define( '_MD_RESERV_REQ', 'Required' );
-define( '_MD_RESERV_ADD', 'Add' );
+define('_MD_EDITARTICLE','Éditer un Événement');
+define('_MD_NEWTITLE','Nouvel Événement');
+define('_MD_NEWSUB','Nouvel Événement - {EVENT_DATE} {EVENT_TITLE} ');
+define('_MD_TITLE','Titre');
+define('_MD_EVENT_DATE','Date de l\'Événement');
+define('_MD_EVENT_EXPIRE','Terminer l\'Affichage');
+define('_MD_EVENT_EXTENT','Réouvrir');
+define('_MD_EVENT_CATEGORY','Catégorie');
+define('_MD_EDIT_EXTENT','Éditer la date d\'ouverture');
+define('_MD_EXTENT_REPEAT','Répéter');
+define('_MD_ADD_EXTENT','Ajouter une date d\'ouverture');
+define('_MD_ADD_EXTENT_DESC','Additional Open Date Time in \"AAAA-MM-JJ HH:MM\" format (Entrées multiples séparées par une nouvelle ligne) ');
+define('_MD_INTROTEXT','Text d\'introduction');
+define('_MD_EXTEXT','Description');
+define('_MD_EVENT_STYLE','Style de l\'évenment');
+define('_MD_RESERV_SETTING','Réservation');
+define('_MD_RESERV_DESC','Permettre les réservations');
+define('_MD_RESERV_STOPFULL','Arrêter les réservations lorsque la limite est atteinte');
+define('_MD_RESERV_AUTO','Accepter automatiquement les réservations (pas d\'approbation requise)');
+define('_MD_RESERV_NOTIFYPOSTER','Notifer les réservations par mail');
+define( '_MD_RESERV_UNIT', 'Unité' );
+define('_MD_RESERV_ITEM','Objets supplémentaires');
+define('_MD_RESERV_LAB','Nom de l\'objet');
+define('_MD_RESERV_LABREQ','Renseigner le nom d\'objet');
+define('_MD_RESERV_REQ','Requis');
+define('_MD_RESERV_ADD','Ajouter');
 define( '_MD_RESERV_OPTREQ', 'Need option argument' );
-define( '_MD_RESERV_ITEM_DESC', '<a href="language/english/help.html#form" target="help">About Additional Items format</a>' );
-define( '_MD_RESERV_LABEL_DESC', 'Use item name "%s" if multiple persons reservation.' );
-define( '_MD_OPTION_VARS', 'Option Variables' );
-define( '_MD_OPTION_OTHERS', 'Others' );
-define( '_MD_RESERV_REDIRECT', 'Redirect After Reservation URL' );
-define( '_MD_RESERV_REDIRECT_DESC', 'Set a number waiting seconds (e.g.: "4;http://..."). variables: {X_EID}, {X_SUB}, {X_RVID}' );
-define( '_MD_APPROVE', 'Approve Display' );
-define( '_MD_PREVIEW', 'Preview' );
-define( '_MD_SAVE', 'save' );
-define( '_MD_UPDATE', 'Update' );
-define( '_MD_DBUPDATED', 'Database Updated' );
-define( '_MD_DBDELETED', 'Event Deleted' );
+define('_MD_RESERV_ITEM_DESC','<a href=\"language/english/help.html#form\" target=\"help\">A propos du format des objets</a> ');
+define('_MD_RESERV_LABEL_DESC','Utiliser le nom d\'objet "%s" en cas de réservation de plusieurs personnes');
+define('_MD_OPTION_VARS','Option Variables');
+define('_MD_OPTION_OTHERS','Autres');
+define('_MD_RESERV_REDIRECT','URL de redirection après la réservation');
+//define( '_MD_RESERV_REDIRECT_DESC', 'Set a number waiting seconds (e.g.: "4;http://..."). variables: {X_EID}, {X_SUB}, {X_RVID}' );
+define('_MD_RESERV_REDIRECT_DESC','Ajouter un nombre de secondes d\'attente  (e.g.: "4;http://..."). variables : {X_EID}, {X_SUB}, {X_RVID} ');
+define('_MD_APPROVE','Valider l\'Affichage');
+define('_MD_PREVIEW','Prévisualiser');
+define('_MD_SAVE','Sauvegarder');
+define('_MD_UPDATE','Mettre à jour');
+define('_MD_DBUPDATED','Base de données mise à jour');
+define('_MD_DBDELETED','Événement Supprimé');
 
-define( '_MD_EVENT_DEL_DESC', 'Delete this event' );
-define( '_MD_EVENT_DEL_ADMIN', 'Delete all data including reservations.' );
+define('_MD_EVENT_DEL_DESC','Supprimer cet événement');
+define('_MD_EVENT_DEL_ADMIN','Supprimer les données y compris les réservations');
 
-define( '_MD_TIMEC', 'Time' );
+define('_MD_TIMEC','Temps');
 // Localization Transrate Month name
 //global $ev_month;
 //$ev_month = array("Jan"=>"Jan", "Feb"=>"Feb", "Mar"=>"Mar", "Apr"=>"Apr",
 //                  "May"=>"May", "Jun"=>"Jun", "Jul"=>"Jul", "Aug"=>"Aug",
 //                  "Sep"=>"Sep", "Oct"=>"Oct", "Nov"=>"Nov", "Dec"=>"Dec");
 
-define( '_MD_RESERV_DEFAULT_ITEM', "Name*,size=40\nAddress\n" );
-define( '_MD_RESERV_DEFAULT_MEMBER', "" );
+//define( '_MD_RESERV_DEFAULT_ITEM', "Name*,size=40\nAddress\n" );
+define('_MD_RESERV_DEFAULT_ITEM',"Name*,size=40\nAddress\n");
+define( '_MD_RESERV_DEFAULT_MEMBER', "Utilisateur par défaut" );
 
 // notification message
-define( '_MD_APPROVE_REQ', 'Please confirm the event and Approve it.' );
+define('_MD_APPROVE_REQ','Confirmer l\'événement et l\'approuver');
 //%%%%%%	File Name sendinfo.php 	%%%%%
-define( "_MD_INFO_TITLE", "Information Mail to Send" );
-define( "_MD_INFO_CONDITION", "Send to" );
-define( "_MD_INFO_NODATA", "No DATA" );
-define( "_MD_INFO_SELF", "send to self (%s)" );
-define( "_MD_INFO_DEFAULT", "-messages-\n\n\nReserved Event\n    {EVENT_URL}\n" );
-define( "_MD_INFO_MAILOK", "Mail sent" );
-define( "_MD_INFO_MAILNG", "Failed to send mail" );
-define( "_MD_UPDATE_SUBJECT", "Event Updated" );
-define( "_MD_UPDATE_DEFAULT", "Default" );
+define('_MD_INFO_TITLE','Mail d\'information à envoyer');
+define('_MD_INFO_CONDITION','Envoyer à');
+define('_MD_INFO_NODATA','pas de DONNÉES');
+define('_MD_INFO_SELF',"Envoyer  à soi (%s) ");
+define('_MD_INFO_DEFAULT',"-messages-\n\n\nÉvénement réservé\n    {EVENT_URL}\n");
+define('_MD_INFO_MAILOK','Mail envoyé');
+define('_MD_INFO_MAILNG','Échec de l\'envoi du mail');
+define('_MD_UPDATE_SUBJECT','Événement mis à jour');
+define('_MD_UPDATE_DEFAULT','Par défaut');
 
 //%%%%%%	File Name print.php 	%%%%%
 
-define( "_MD_URLFOREVENT", "This event's URL:" );
+define('_MD_URLFOREVENT','URL de cet Événement :');
 // %s represents your site name
-define( "_MD_THISCOMESFROM", "More event information at %s" );
+define('_MD_THISCOMESFROM','Plus d\'information sur %s ');
 
 //%%%%%%	File Name mylist.php 	%%%%%
-define( '_MD_MYLIST', 'Reservation Events' );
-define( '_MD_CANCEL', 'Cancel' );
-define( '_MD_CANCEL_SUBJ', 'Cancel - {EVENT_DATE} {EVENT_TITLE}' );
-
+define('_MD_MYLIST','Réservation des Événements');
+define('_MD_CANCEL','Annuler');
+define('_MD_CANCEL_SUBJ','Annuler - {EVENT_DATE} {EVENT_TITLE} ');

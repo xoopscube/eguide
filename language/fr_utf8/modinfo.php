@@ -1,127 +1,130 @@
 <?php
-// $Id: modinfo.php,v 1.27 2010/10/10 06:30:12 nobu Exp $
-// Module Info
+// Event Guide Module Administration message catalogue
+// French UTF-8 @gigamaster
 
 if ( defined( '_MI_EGUIDE_NAME' ) ) {
 	return;
 }
 
 // The name of this module
-define( "_MI_EGUIDE_NAME", "Event Guide" );
+//define( "_MI_EGUIDE_NAME", "Event Guide" );
+define('_MI_EGUIDE_NAME','Gestion d\'Événements');
 
 // A brief description of this module
-define( "_MI_EGUIDE_DESC", "Event Management, Guidance and Reservation system" );
+define('_MI_EGUIDE_DESC','Affichage des détails de l\'événement et système de Réservation');
 
 // Names of blocks for this module (Not all module has blocks)
-define( "_MI_EGUIDE_MYLIST", "My booked events" );
-define( "_MI_EGUIDE_SUBMIT", "Create New Event" );
-define( "_MI_EGUIDE_COLLECT", "Management" );
-define( "_MI_EGUIDE_REG", "&#9993; Notify me of new events" );
-define( "_MI_EGUIDE_HEADLINE", "Event Guide" );
-define( "_MI_EGUIDE_HEADLINE_DESC", "Upcomming Event List" );
-define( "_MI_EGUIDE_HEADLINE2", "New Events" );
-define( "_MI_EGUIDE_HEADLINE2_DESC", "Newer Posted Event List" );
-define( "_MI_EGUIDE_HEADLINE3", "Finished Events" );
-define( "_MI_EGUIDE_HEADLINE3_DESC", "List of closed events." );
-define( "_MI_EGUIDE_CATBLOCK", "Event Category" );
-define( "_MI_EGUIDE_CATBLOCK_DESC", "Choose event category" );
+define('_MI_EGUIDE_MYLIST','Événements réservés');
+define('_MI_EGUIDE_SUBMIT','Enregistrer un nouvel événement');
+define('_MI_EGUIDE_COLLECT','Réglages de la collection');
+define('_MI_EGUIDE_REG','Notifier des nouveaux événements');
+define('_MI_EGUIDE_HEADLINE','Guide pour les Événements');
+define('_MI_EGUIDE_HEADLINE_DESC','Listes des événements récents à venir');
+define('_MI_EGUIDE_HEADLINE2','Nouveaux Événements');
+define('_MI_EGUIDE_HEADLINE2_DESC','Liste des événements postés récemment');
+define('_MI_EGUIDE_HEADLINE3','Événements terminés');
+define('_MI_EGUIDE_HEADLINE3_DESC','Liste des événements déjà terminés');
+define('_MI_EGUIDE_CATBLOCK','Catégorie d\'événement');
+define('_MI_EGUIDE_CATBLOCK_DESC','Choisir une catégorie d\'événement');
 
 define( "_MI_EGUIDE_EVENTS", "Event article Operation" );
-define( "_MI_EGUIDE_NOTIFIES", "&#9993; Notify New registers" );
-define( "_MI_EGUIDE_CATEGORY", "Event Categories" );
-define( "_MI_EGUIDE_SUMMARY", "Summary of Reservation" );
-define( "_MI_EGUIDE_CATEGORY_MARK", "Category - " );
-define( "_MI_EGUIDE_ABOUT", "about eguide" );
+define('_MI_EGUIDE_NOTIFIES','Notifier les nouveaux enregistrés');
+define('_MI_EGUIDE_CATEGORY','Catégories de l\'événement');
+define('_MI_EGUIDE_SUMMARY','Résumé des réservations');
+define('_MI_EGUIDE_CATEGORY_MARK','Catégorie -');
+define('_MI_EGUIDE_ABOUT','a propos de Eguide');
 
 // Configuration variable for this module
-define( "_MI_EGUIDE_POSTGROUP", "&#9919; Group Permissions" );
-define( "_MI_EGUIDE_POSTGROUP_DESC", "Select a group with the required  permissions to manage its own events." );
-define( "_MI_EGUIDE_NOTIFYADMIN", "&#9993; Notify the Admin by email" );
-define( "_MI_EGUIDE_NOTIFYADMIN_DESC", "Notification sent to the administrator when a new event is registered." );
-define( "_MI_EGUIDE_NOTIFY_ALWAYS", "Always" );
-define( "_MI_EGUIDE_NOTIFYGROUP", "Group of administrators for the notification" );
-define( "_MI_EGUIDE_NOTIFYGROUP_DESC", "The group of administrators to send a notification email to." );
-define( "_MI_EGUIDE_NEEDPOSTAUTH", "New Event Approval Process" );
-define( "_MI_EGUIDE_NEEDPOSTAUTH_DESC", "New events must be approved by the site administrator" );
-define( "_MI_EGUIDE_MAX_LISTITEM", "Show additional items in the list" );
-define( "_MI_EGUIDE_MAX_LISTITEM_DESC", "Display additional items in the list, additional input order form." );
-define( "_MI_EGUIDE_MAX_LISTLINES", "Display list items in a page" );
-define( "_MI_EGUIDE_MAX_LISTLINES_DESC", "How many rows of elements in a page" );
-define( "_MI_EGUIDE_MAX_EVENT", "Show events on the Top page" );
-define( "_MI_EGUIDE_MAX_EVENT_DESC", "Number of events listed on the Top page" );
-define( "_MI_EGUIDE_SHOW_EXTENTS", "Show multiple entries" );
-define( "_MI_EGUIDE_SHOW_EXTENTS_DESC", "When the event has multiple entries, display each entry. YES - show every entry. NO - Show only the last entry." );
-define( "_MI_EGUIDE_USER_NOTIFY", "User requested notification of new event" );
-define( "_MI_EGUIDE_USER_NOTIFY_DESC", "YES - Enable notification mail, NO - disable." );
-define( "_MI_EGUIDE_MEMBER", "Require LOGIN" );
-define( "_MI_EGUIDE_MEMBER_DESC", "Only login user can be reservation event. (Not use email address)" );
-define( "_MI_EGUIDE_MEMBER_RELAX", "Both" );
-define( "_MI_EGUIDE_ORDERCONF", "Confirmation page" );
-define( "_MI_EGUIDE_ORDERCONF_DESC", "Display the confirmation page when submitting the reservation form." );
-define( "_MI_EGUIDE_CLOSEBEFORE", "&#127915; check-in time before the event (min)" );
-define( "_MI_EGUIDE_CLOSEBEFORE_DESC", "Set the closing time for event check-in in minutes" );
-define( "_MI_EGUIDE_LAB_PERSONS", "Additional item options" );
-define( "_MI_EGUIDE_LAB_PERSONS_DESC", "Additional item optional settings, like a field label for how many persons. Example: 'label_persons=Persons'. See <a href=\"../../eguide/admin/help.php#form_options\">about eguide page</a> more details." );
-define( "_MI_EGUIDE_DATE_FORMAT", "Date Format" );
-define( "_MI_EGUIDE_DATE_FORMAT_DESC", "Format for displaying the date (time) of an open event. Use of the PHP date function format.." );
-define( "_MI_EGUIDE_DATE_FORMAT_DEF", "D, d M Y" );
-define( "_MI_EGUIDE_EXPIRE_AFTER", "&#9201; Expires after the time" );
-define( "_MI_EGUIDE_EXPIRE_AFTER_DESC", "The event is expired on the first page when the start time of the event is exceeded by a few minutes." );
-define( "_MI_EGUIDE_PERSONS", "Persons default value" );
-define( "_MI_EGUIDE_PERSONS_DESC", "Default value of participants " );
-define( "_MI_EGUIDE_PLUGINS", "Use reservation control plugins" );
-define( "_MI_EGUIDE_PLUGINS_DESC", "Internal control accept entry form plugins" );
-define( "_MI_EGUIDE_COMMENT", "&#128490; Allow Comments" );
-define( "_MI_EGUIDE_COMMENT_DESC", "Allow commnets to event" );
-define( "_MI_EGUIDE_MARKER", "Current entry level mark" );
-define( "_MI_EGUIDE_MARKER_DESC", "The mark mean of how many entry in current. Show mark correspond percentage. (xx,yy mean less than xx% showup yy. And '0,yy' mean out of date mark)" );
-define( "_MI_EGUIDE_MARKER_DEF", "0,[Close]\n50,[Vacant]\n100,[Many]\n101,[Full]\n" );
-define( "_MI_EGUIDE_TIME_DEFS", "Time Table Labels" );
-define( "_MI_EGUIDE_TIME_DEFS_DESC", "Set starting time in Settings collection page. e.g.: 08:00,14:00,16:00" );
-define( "_MI_EGUIDE_EXPORT_LIST", "Item List in export reservations" );
-define( "_MI_EGUIDE_EXPORT_LIST_DESC", "Item `name' or `number' seperated comma(,). Astarisk(*) mean left items. e.g.: 3,4,0,2,*" );
-define( "_MI_EGUIDE_EDITOR", "HTML Editor" );
-define( "_MI_EGUIDE_EDITOR_DESC", "<em>What You See Is What You Get</em> - this feature requires the module CKEditor" );
-define( "_MI_EGUIDE_BREADCRUMBS", "BREADCRUMBS" );
-define( "_MI_EGUIDE_BREADCRUMBS_DESC", "BREADCRUMBS_DESC" );
+define('_MI_EGUIDE_POSTGROUP','Post du groupe de l\'événement');
+define('_MI_EGUIDE_POSTGROUP_DESC','Définir un groupe qui pourra administrer l\'événement');
+define('_MI_EGUIDE_NOTIFYADMIN','Notifier l\'admin par mail');
+define('_MI_EGUIDE_NOTIFYADMIN_DESC','Notifier l\'admin par mail quand un nouvel événement est enregistré');
+define('_MI_EGUIDE_NOTIFY_ALWAYS','Toujours');
+define('_MI_EGUIDE_NOTIFYGROUP','Groupe d\'amin pour les notifications');
+define('_MI_EGUIDE_NOTIFYGROUP_DESC','Le groupe reçoit les notifications d\'admin par mail');
+define('_MI_EGUIDE_NEEDPOSTAUTH','Le nouvel événement doit être approuvé');
+define('_MI_EGUIDE_NEEDPOSTAUTH_DESC','Le nouvel événement doit être approuvé par un administrateur.');
+define('_MI_EGUIDE_MAX_LISTITEM','Afficher plus d\'objet dans la liste');
+define( "_MI_EGUIDE_MAX_LISTITEM_DESC", "Display items entry order additional form" );
+define('_MI_EGUIDE_MAX_LISTLINES','Afficher la liste des objets sur une page');
+define('_MI_EGUIDE_MAX_LISTLINES_DESC','Nombre de lignes d\'objet par ligne sur une page');
+define('_MI_EGUIDE_MAX_EVENT','Affichier les événements sur la top page');
+define('_MI_EGUIDE_MAX_EVENT_DESC','Nombre d\'événements listés sur la top page');
+define('_MI_EGUIDE_SHOW_EXTENTS','Montrer les entrées multiples');
+define('_MI_EGUIDE_SHOW_EXTENTS_DESC','Si un événement a plusieurs entrées, montrer chaque entrée. <br>
+Oui - afficher chaque entrée.<br>
+Non - Ne montrer que les entrées récentes.');
+define('_MI_EGUIDE_USER_NOTIFY','L\'utilisateur a demandé les notifications pour un nouvel événement');
+define('_MI_EGUIDE_USER_NOTIFY_DESC','OUI - Permet les notifications par mail<br> 
+NON -  Désactiver');
+define( '_MI_EGUIDE_MEMBER','Pour participer à l\'événement, requiert la connexion de l\'utilisateur');
+define( '_MI_EGUIDE_MEMBER_DESC','Seuls les utilisateurs enregistrés peuvent réserver des événements. (pas d\'adresse email)');
+define( '_MI_EGUIDE_MEMBER_RELAX','Les deux');
+define( '_MI_EGUIDE_ORDERCONF','page de confirmation');
+define( '_MI_EGUIDE_ORDERCONF_DESC','Afficher la page de confirmation quand un réservation est soumise.');
+define( '_MI_EGUIDE_CLOSEBEFORE','Fermeture des inscriptions (min) ');
+define( '_MI_EGUIDE_CLOSEBEFORE_DESC', 'Event entry close time before setting minits.' );
+define( '_MI_EGUIDE_LAB_PERSONS','Options des objets supplémentaires');
+define( '_MI_EGUIDE_LAB_PERSONS_DESC', "Additional item optional settings, like a field label for how many persons. Example: 'label_persons=Persons'. See <a href=\"../../eguide/admin/help.php#form_options\">about eguide page</a> more details." );
+define( '_MI_EGUIDE_DATE_FORMAT','Format de la date');
+define( '_MI_EGUIDE_DATE_FORMAT_DESC', "Format de la date affichée pour les événements. Utiliser le format de la date PHP." );
+define( '_MI_EGUIDE_DATE_FORMAT_DEF', "D, d M Y" );
+define( '_MI_EGUIDE_EXPIRE_AFTER','Temps d\'expiration');
+define( '_MI_EGUIDE_EXPIRE_AFTER_DESC', 'Event expired on top page when after event start time in minites.' );
+define( '_MI_EGUIDE_PERSONS','Valeur par défaut des personnes');
+define( '_MI_EGUIDE_PERSONS_DESC', 'Reservation persons in event post form' );
+define( '_MI_EGUIDE_PLUGINS','Utiliser le plugin de contrôle des réservations');
+define( '_MI_EGUIDE_PLUGINS_DESC', 'Internal control accept entry form plugins' );
+define( '_MI_EGUIDE_COMMENT','Permettre les commentaires');
+define( '_MI_EGUIDE_COMMENT_DESC','Permettre de commenter les événements');
+define( '_MI_EGUIDE_MARKER', 'Current entry level mark' );
+define( '_MI_EGUIDE_MARKER_DESC', 'The mark mean of how many entry in current. Show mark correspond percentage. (xx,yy mean less than xx% showup yy. And "0,yy" mean out of date mark)' );
+define( '_MI_EGUIDE_MARKER_DEF', "0,[Close]\n50,[Vacant]\n100,[Many]\n101,[Full]\n" );
+define( '_MI_EGUIDE_TIME_DEFS', 'Time Table Labels' );
+define( '_MI_EGUIDE_TIME_DEFS_DESC', 'Set starting time in Settings collection page. e.g.: 08:00,14:00,16:00' );
+define( '_MI_EGUIDE_EXPORT_LIST', 'Item List in export reservations' );
+define( '_MI_EGUIDE_EXPORT_LIST_DESC', "Item `name' or `number' seperated comma(,). Astarisk(*) mean left items. e.g.: 3,4,0,2,*" );
+define( '_MI_EGUIDE_EDITOR', 'Editeur visuel' );
+define( '_MI_EGUIDE_EDITOR_DESC', 'WYSIWYG semblable aux outils d\'édition de bureau (OpenOffice, Word) - cette option requiert l\'installation du module CKEditor.' );
+define( '_MI_EGUIDE_BREADCRUMBS', 'BREADCRUMBS' );
+define( '_MI_EGUIDE_BREADCRUMBS_DESC', 'BREADCRUMBS_DESC' );
 
 // Templates
 define( "_MI_EGUIDE_EVENT_BREADCRUMBS_TPL", "Module Breadcrumb navigation" );
 define( "_MI_EGUIDE_INDEX_TPL", "Event Guide Top page list" );
-define( "_MI_EGUIDE_EVENT_TPL", "Detail of Event" );
+define('_MI_EGUIDE_EVENT_TPL','Détails de l\'événement');
 define( "_MI_EGUIDE_ENTRY_TPL", "Reservation entry" );
 define( "_MI_EGUIDE_USERSSEL_TPL", "User select for operators entry" );
 define( "_MI_EGUIDE_EVENT_PRINT_TPL", "Detail of Event for Print" );
-define( "_MI_EGUIDE_RECEIPT_TPL", "Reservations List" );
-define( "_MI_EGUIDE_ADMIN_TPL", "Event Entry Form" );
+define('_MI_EGUIDE_RECEIPT_TPL','Liste des réservations');
+define('_MI_EGUIDE_ADMIN_TPL','Formulaire d\'entrée des événements');
 define( "_MI_EGUIDE_RECEIPT_PRINT_TPL", "Reservations List for Print" );
 define( "_MI_EGUIDE_EVENT_ITEM_TPL", "Item of Event Showup" );
-define( "_MI_EGUIDE_EVENT_CONF_TPL", "Event Confirmation Form" );
-define( "_MI_EGUIDE_EVENT_LIST_TPL", "Reserved Event List" );
-define( "_MI_EGUIDE_EVENT_CONFIRM_TPL", "Reservation Confirmation" );
+define('_MI_EGUIDE_EVENT_CONF_TPL','Formulaire de confirmation des événements');
+define('_MI_EGUIDE_EVENT_LIST_TPL','Liste des événements réservés');
+define('_MI_EGUIDE_EVENT_CONFIRM_TPL','Confirmation de la réservation');
 define( "_MI_EGUIDE_EDITDATE_TPL", "Edit Open Date" );
 define( "_MI_EGUIDE_COLLECT_TPL", "Reservation setting collection" );
-define( "_MI_EGUIDE_EXCEL_TPL", "Excel (XML) file format in exporting" );
+define('_MI_EGUIDE_EXCEL_TPL','Format Excel (XML) à l\'exportation');
 
 // Notifications
-define( '_MI_EGUIDE_GLOBAL_NOTIFY', 'Global in module' );
+define( '_MI_EGUIDE_GLOBAL_NOTIFY', 'Grobal in module' );
 define( '_MI_EGUIDE_GLOBAL_NOTIFY_DESC', 'Notification in Event Guide module' );
-define( '_MI_EGUIDE_CATEGORY_NOTIFY', 'Current category' );
+define('_MI_EGUIDE_CATEGORY_NOTIFY','Catégorie Actuelle');
 define( '_MI_EGUIDE_CATEGORY_NOTIFY_DESC', 'Notification at category in Event Guide module' );
-define( '_MI_EGUIDE_CATEGORY_BOOKMARK', 'Current event' );
+define('_MI_EGUIDE_CATEGORY_BOOKMARK','Événement actuel');
 define( '_MI_EGUIDE_CATEGORY_BOOKMARK_DESC', 'Notifcation at current event in Event Guide module' );
 
-define( '_MI_EGUIDE_NEWPOST_SUBJECT', 'New Event - {EVENT_DATE} {EVENT_TITLE}' );
-define( '_MI_EGUIDE_NEWPOST_NOTIFY', 'New event post' );
-define( '_MI_EGUIDE_NEWPOST_NOTIFY_CAP', 'Notify when new event posted' );
-define( '_MI_EGUIDE_CNEWPOST_NOTIFY', 'New event post in category' );
-define( '_MI_EGUIDE_CNEWPOST_NOTIFY_CAP', 'Notify when new event posted in current category' );
+define('_MI_EGUIDE_NEWPOST_SUBJECT','Nouvel événement - {EVENT_DATE} {EVENT_TITLE} ');
+define('_MI_EGUIDE_NEWPOST_NOTIFY','Nouveau post d\'événement');
+define('_MI_EGUIDE_NEWPOST_NOTIFY_CAP','Notifier lors d\'un nouveau post d\'événement');
+define('_MI_EGUIDE_CNEWPOST_NOTIFY','Nouveau post d\'événement dans la catégorie');
+define('_MI_EGUIDE_CNEWPOST_NOTIFY_CAP','Notifier lors d\'un nouveau post d\'événement dans la catégorie actuelle');
 
 // for altsys
 if ( ! defined( '_MD_A_MYMENU_MYTPLSADMIN' ) ) {
 	define( '_MD_A_MYMENU_MYTPLSADMIN', 'Templates' );
-	define( '_MD_A_MYMENU_MYBLOCKSADMIN', 'Blocks/Permissions' );
-	define( '_MD_A_MYMENU_MYLANGADMIN', 'Languages' );
-	define( '_MD_A_MYMENU_MYPREFERENCES', 'Preferences' );
+define('_MD_A_MYMENU_MYBLOCKSADMIN','Blocs/permissions');
+define('_MD_A_MYMENU_MYLANGADMIN','Langues');
+define('_MD_A_MYMENU_MYPREFERENCES','Préférences');
 }
-
