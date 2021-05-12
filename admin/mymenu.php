@@ -1,10 +1,5 @@
 <?php
 
-// Skip for ORETEKI XOOPS
-if ( defined( 'XOOPS_ORETEKI' ) ) {
-	return;
-}
-
 global $xoopsModule;
 if ( ! is_object( $xoopsModule ) ) {
 	die( '$xoopsModule is not set' );
@@ -69,11 +64,6 @@ if ( count( $config_handler->getConfigs( new Criteria( 'conf_modid', $xoopsModul
 			'title' => _PREFERENCES,
 			'link'  => XOOPS_URL . '/modules/legacy/admin/index.php?action=PreferenceEdit&confmod_id=' . $xoopsModule->mid()
 		);
-	} else {
-		$adminmenu[] = array(
-			'title' => _PREFERENCES,
-			'link'  => XOOPS_URL . '/modules/system/admin.php?fct=preferences&op=showmod&mod=' . $xoopsModule->mid()
-		);
 	}
 }
 
@@ -95,7 +85,7 @@ if ( empty( $adminmenu_hilighted ) ) {
 	$maxlen = 0;
 	foreach ( array_keys( $adminmenu ) as $i ) {
 		$link = $adminmenu[ $i ]['link'];
-		if ( $maxlen < strlen( $link ) && stristr( $mymenu_uri, $link ) ) {
+		if ( $maxlen < strlen( $link ) && false !== stripos( $mymenu_uri, $link ) ) {
 			if ( $maxlen ) {
 				$last = false;
 			}
@@ -131,7 +121,12 @@ if ( $use_altsys ) {
 	// display (you can customize htmls)
 	echo "<div style='text-align:left;width:98%;'>";
 	foreach ( $adminmenu as $menuitem ) {
-		echo "<div style='float:left;height:1.5em;'><nobr><a href='" . htmlspecialchars( $menuitem['link'], ENT_QUOTES ) . "' style='background-color:" . ( $menuitem['selected'] ? "#FFCCCC" : "#DDDDDD" ) . ";font:normal normal bold 9pt/12pt;'>" . htmlspecialchars( $menuitem['title'], ENT_QUOTES ) . "</a> | </nobr></div>\n";
+		echo "<div style='float:left;height:1.5em;'><nobr><a href='"
+		     . htmlspecialchars( $menuitem['link'], ENT_QUOTES )
+		     . "' style='background-color:" . ( $menuitem['selected'] ? "#FFCCCC" : "#DDDDDD" )
+		     . ";font:normal normal bold 9pt/12pt;'>"
+		     . htmlspecialchars( $menuitem['title'], ENT_QUOTES )
+		     . "</a> | </nobr></div>\n";
 	}
-	echo "</div>\n<hr style='clear:left;display:block;' />\n";
+	echo "</div>\n<hr style='clear:left;display:block;'>\n";
 }

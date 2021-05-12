@@ -22,7 +22,7 @@ $expire_set = array(
 );
 
 $edit_style = array(
-	0 => "only XOOPS tags",
+	0 => "Allowed tags",
 	1 => "New line makes tag &lt;br&gt;",
 	2 => "disable HTML tags"
 );

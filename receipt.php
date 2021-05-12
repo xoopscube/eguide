@@ -27,7 +27,7 @@ if ( $rvid ) {
 	$back    = EGUIDE_URL . '/receipt.php?eid=' . $eid . ( $exid ? '&sub=' . $exid : '' );
 	$backanc = "<a href='$back'>" . _MD_RESERV_RETURN . "</a>";
 	if ( $op == 'save' ) {
-		$status = intval( $_POST['status'] );
+		$status = (int) $_POST['status'];
 		$email  = $xoopsDB->quoteString( post_filter( $_POST['email'] ) );
 		$info   = post_filter( $_POST['info'] );
 		$vals   = unserialize_text( $data['info'] );
@@ -129,7 +129,7 @@ if ( $nrec && $op == 'csv' ) {
 	foreach ( $outs as $v ) {
 		$temp[] = '"' . preg_replace( '/"/', '""', $v ) . '"';
 	}
-	$out = join( ',', $temp ) . "\n";
+	$out = implode( ',', $temp ) . "\n";
 	// body
 	while ( $a = $xoopsDB->fetchArray( $result ) ) {
 		$row                   = unserialize_text( $a['info'] );
@@ -142,7 +142,7 @@ if ( $nrec && $op == 'csv' ) {
 			$v      = $row[ $k ];
 			$temp[] = '"' . preg_replace( '/\"/', '""', $v ) . '"';
 		}
-		$out .= join( ',', $temp ) . "\n";
+		$out .= implode( ',', $temp ) . "\n";
 	}
 
 	$file    = "eguide_" . formatTimestamp( time(), "Ymd" ) . ".csv";
@@ -179,6 +179,7 @@ $paths[ _MD_RESERV_ADMIN ] = "receipt.php?eid=$eid" . ( $exid ? "&sub=$exid" : "
 set_eguide_breadcrumbs( $head['topicid'], $paths );
 
 $evurl = EGUIDE_URL . "/event.php?eid=$eid" . ( $exid ? "&sub=$exid" : "" );
+
 switch ( $op ) {
 	case 'active':
 		$result = $xoopsDB->query( 'SELECT optfield FROM ' . OPTBL . ' WHERE eid=' . $eid );
@@ -188,7 +189,7 @@ switch ( $op ) {
 		$cnt   = 0;
 		echo "<p><a href='$evurl' class='evhead'>$title</a></p>\n";
 		foreach ( $_POST['act'] as $i ) {
-			$rvid   = intval( $i );
+			$rvid   = (int) $i;
 			$yesno  = param( 'yesno' );
 			$result = $xoopsDB->query( "SELECT * FROM " . RVTBL . " WHERE rvid=$rvid AND status=" . _RVSTAT_ORDER );
 			$data   = $xoopsDB->fetchArray( $result );
@@ -222,7 +223,7 @@ switch ( $op ) {
 					$ret = _MD_RESERV_REFUSE;
 					if ( $isnum ) {
 						$vals = unserialize_text( $data['info'] );
-						$num  = intval( $vals[ $nlab ] );
+						$num  = (int) $vals[ $nlab ];
 						if ( $num < 1 ) {
 							$num = 1;
 						}
@@ -265,7 +266,7 @@ switch ( $op ) {
 		echo "<table class='outer'>\n";
 		echo "<tr><th align='left'>" . _MD_RVID . "</th><td class='even'>$rvid</td></tr>\n";
 		echo "<tr><th align='left'>" . _MD_ORDER_DATE . "</th><td class='odd'>" . formatTimestamp( $data['rdate'], _MD_TIME_FMT ) . "</td></tr>\n";
-		echo "<tr><th align='left'>" . _MD_EMAIL . "</th><td class='even'><input size='40' name='email' value='" . $data['email'] . "' /></td></tr>\n";
+		echo "<tr><th align='left'>" . _MD_EMAIL . "</th><td class='even'><input type='email' pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2, 4}$' size='40' name='email' value='" . $data['email'] . "' /></td></tr>\n";
 		echo "<tr><th align='left'>" . _MD_STATUS . "</th><td class='odd'>\n";
 		$s = $data['status'];
 		echo "<select name='status'>\n";

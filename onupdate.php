@@ -3,7 +3,7 @@
 # $Id: onupdate.php,v 1.5 2010/02/21 11:07:50 nobu Exp $
 
 global $xoopsDB;
-include_once dirname( __FILE__ ) . "/const.php";
+include_once __DIR__ . "/const.php";
 
 $config = XOOPS_ROOT_PATH . '/modules/eguide/cache/config.php';
 

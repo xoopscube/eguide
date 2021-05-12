@@ -29,7 +29,7 @@ define( '_MD_LISTITEM_FMT', '[%s]' );
 define( "_MD_ORDER_NOTE1", "'" . _MD_REQUIRE_MARK . "' éléments requis." );
 define('_MD_ORDER_NOTE2',' \'[ ]\' objet affiché pour la liste de participants.');
 define('_MD_ORDER_SEND','Réservation');
-define('_MD_ORDER_CONF','Confirmer');
+define('_MD_ORDER_CONF','Envoyer la réservation');
 
 define('_MD_EVENT_NONE','Il n\'y a pas de guide d\'événement');
 define('_MD_BACK','Retour');

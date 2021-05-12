@@ -278,7 +278,7 @@ function eventform( $data, $uid ) {
 					continue;
 				}
 				$args = explode( "=", $op, 2 );
-				// XXX: strtolower PHP4 mbstring bug escape.
+
 				$aname = isset( $args[1] ) ? strtolower( $args[0] ) : $args[0];
 				switch ( $aname ) {
 					case "size":
@@ -326,6 +326,7 @@ function eventform( $data, $uid ) {
 						}
 				}
 			}
+
 			if ( ! isset( $_POST[ $fname ] ) ) {
 				if ( empty( $v ) && $poster && preg_match( _MD_NAME, $name ) ) { // compat old version
 					$v = $poster->getVar( 'name' );
@@ -334,8 +335,9 @@ function eventform( $data, $uid ) {
 				}
 				$v = htmlspecialchars( $v );
 			}
+
 			if ( $type == "text" ) {
-				$opts .= "<input size='$size' name='$fname' value=\"$v\" $prop/>";
+				$opts .= "<input type='text' size='$size' name='$fname' value=\"$v\" $prop/>";
 			} elseif ( $type == "textarea" ) {
 				$opts .= "<textarea name='$fname' rows='$rows' cols='$cols' wrap='virtual' $prop>$v</textarea>";
 			} elseif ( $type == "select" ) {
@@ -344,13 +346,16 @@ function eventform( $data, $uid ) {
 				$opts = $v;
 			}
 		}
+
 		if ( $require ) {
 			if ( $type == 'checkbox' ) {
 				$fname .= '[]';
 			}
 			$form['check'][ $fname ] = preg_replace( '/\\*$/', '', $name ) . ": " . strip_tags( _MD_ORDER_NOTE1 );
 		}
+
 		$name = preg_replace( '/\\*$/', _MD_REQUIRE_MARK, $name );
+
 		if ( $attr == 'evop' ) {
 			$name = sprintf( _MD_LISTITEM_FMT, $name );
 		}
@@ -361,6 +366,7 @@ function eventform( $data, $uid ) {
 			'comment' => $comment
 		);
 	}
+
 	$form['op']      = ( $xoopsModuleConfig['has_confirm'] &&
 	                     ( count( $items ) || ! $mo ) ) ? 'confirm' : 'order';
 	$form['items']   = $items;
@@ -370,6 +376,7 @@ function eventform( $data, $uid ) {
 
 	return $form;
 }
+
 
 // remove slashes
 if ( XOOPS_USE_MULTIBYTES && function_exists( "mb_convert_encoding" ) &&
@@ -395,6 +402,7 @@ if ( XOOPS_USE_MULTIBYTES && function_exists( "mb_convert_encoding" ) &&
 	}
 }
 
+
 // take HTTP paramater with normalize filter
 function param( $name, $def = 0 ) {
 	if ( isset( $_POST[ $name ] ) ) {
@@ -407,6 +415,7 @@ function param( $name, $def = 0 ) {
 
 	return is_numeric( $def ) ? (int) $val : post_filter( $val );
 }
+
 
 // set ldate to next event date if exists extent entry.
 function set_next_event() {
@@ -422,6 +431,7 @@ function set_next_event() {
 	}
 }
 
+
 function get_extents( $eid, $all = false ) {
 	global $xoopsDB;
 	$result  = $xoopsDB->query( 'SELECT exid,exdate,expersons,x.reserved,if(expersons IS NULL,persons,expersons) persons FROM ' . EXTBL . ' x LEFT JOIN ' . OPTBL . " o ON eidref=eid WHERE eidref=$eid" . ( $all ? "" : " AND exdate-closetime>" . time() ) . ' ORDER BY exdate' );
@@ -433,6 +443,7 @@ function get_extents( $eid, $all = false ) {
 
 	return $extents;
 }
+
 
 function eventdate( $time, $format = "", $offset = "" ) {
 	global $ev_week, $ev_month, $xoopsModuleConfig;
@@ -488,6 +499,7 @@ function eventdate( $time, $format = "", $offset = "" ) {
 	return $str;
 }
 
+
 function preg_word_quote( $a ) {
 	$ret = array();
 	foreach ( array_keys( $a ) as $v ) {
@@ -496,6 +508,7 @@ function preg_word_quote( $a ) {
 
 	return $ret;
 }
+
 
 function get_eguide_category( $all = true, $indent = '' ) {
 	global $xoopsDB;
@@ -529,6 +542,7 @@ function get_eguide_category( $all = true, $indent = '' ) {
 
 	return $list;
 }
+
 
 function set_eguide_breadcrumbs( $catid = 0, $paths = array() ) {
 	global $xoopsModule, $xoopsModuleConfig, $xoopsTpl;
@@ -568,7 +582,7 @@ function set_eguide_breadcrumbs( $catid = 0, $paths = array() ) {
 function fetch_event( $eid, $exid, $admin = false ) {
 	global $xoopsDB;
 	$stc    = $admin ? "" : "AND status=" . STAT_NORMAL;
-	$fields = "e.eid, cdate, title, summary, body, optfield,
+	$fields = "e.eid, cdate, title, summary, body, emap, optfield,
 IF(expersons IS NULL, persons, expersons) persons, edate opendate,
 IF(exdate,exdate,edate) edate, IF(x.reserved,x.reserved,o.reserved) reserved, 
 closetime, reservation, uid, status, style, counter, topicid, 
@@ -584,6 +598,7 @@ exid, exdate, strict, autoaccept, notify, optvars";
 	return $data;
 }
 
+
 function display_username( $uid, $ancher = false ) {
 	$user = new XoopsUser( (int) $uid );
 	$str  = eguide_form_options( 'display_username', '{X_UNAME}' );
@@ -596,6 +611,7 @@ function display_username( $uid, $ancher = false ) {
 
 	return ( $ancher ? '<a href="' . XOOPS_URL . '/userinfo.php?uid=' . $uid . '">' . $str . '</a>' : $str );
 }
+
 
 if ( ! function_exists( "template_dir" ) ) {
 	function template_dir( $file = '' ) {
@@ -613,9 +629,11 @@ if ( ! function_exists( "template_dir" ) ) {
 	}
 }
 
+
 function eguide_from_name() {
 	return eguide_form_options( "from_name", defined( '_MD_FROM_NAME' ) ? _MD_FROM_NAME : $GLOBALS['xoopsModule']->getVar( 'name' ) );
 }
+
 
 function order_notify( $data, $email, $value ) {
 	global $xoopsModuleConfig, $xoopsUser, $xoopsModule;
@@ -714,9 +732,11 @@ function order_notify( $data, $email, $value ) {
 	return $ret;
 }
 
+
 function disp_value( $val ) {
 	return ( empty( $val ) || $val == 'null' ) ? _MD_UPDATE_DEFAULT : $val;
 }
+
 
 if ( ! function_exists( "file_get_contents" ) ) {
 	// have php 4.2 later
@@ -734,8 +754,10 @@ if ( ! function_exists( "file_get_contents" ) ) {
 	}
 }
 
+
 function eguide_form_options( $name = '', $def = false ) {
 	static $options;
+
 	if ( ! isset( $options ) ) {
 		$options = is_array( $def ) ? $def : array();
 		$re      = '/^\s*([a-z\d_]+)\s*=(.*)$/';
@@ -773,6 +795,7 @@ function eguide_form_options( $name = '', $def = false ) {
 
 	return $name ? ( isset( $options[ $name ] ) ? $options[ $name ] : $def ) : $options;
 }
+
 
 function assign_module_css() {
 	global $xoopsTpl;

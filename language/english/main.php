@@ -28,7 +28,7 @@ define( '_MD_LISTITEM_FMT', '[%s]' );
 define( "_MD_ORDER_NOTE1", "'" . _MD_REQUIRE_MARK . "'required items. " );
 define( "_MD_ORDER_NOTE2", "'[ ]' item to be displayed on list of participants." );
 define( '_MD_ORDER_SEND', 'Reservation' );
-define( '_MD_ORDER_CONF', 'Go to Confirm' );
+define( '_MD_ORDER_CONF', 'Confirm your reservation' );
 
 define( "_MD_EVENT_NONE", "There is no event guide" );
 define( "_MD_BACK", "Back" );
@@ -76,7 +76,7 @@ define( "_MD_NOEVENT", "No Event Listed" );
 define( "_MD_SHOW_PREV", "Previous Events" );
 define( "_MD_SHOW_NEXT", "Upcoming Events" );
 
-define( "_MD_POSTERC", "Poster" );
+define( "_MD_POSTERC", "Event Manager" );
 define( '_MD_POSTDATE', 'Registered' );
 define( '_MD_STARTTIME', 'Starting Event' );
 define( '_MD_CLOSEDATE', 'Close Reservation' );
@@ -129,6 +129,8 @@ define( '_MD_ADD_EXTENT', 'Add Open Date' );
 define( '_MD_ADD_EXTENT_DESC', 'Additional Open Date Time in "YYYY-MM-DD HH:MM" format (Multiple entry separate in newline)' );
 define( "_MD_INTROTEXT", "Introduction Text" );
 define( "_MD_EXTEXT", "Description" );
+define( "_MD_EVENT_MAP", "Map" );
+define( "_MD_EVENT_MAP_DESC", "Google Maps or Open Street Map iframe" );
 define( "_MD_EVENT_STYLE", "Output Style" );
 define( '_MD_RESERV_SETTING', 'Reservation' );
 define( "_MD_RESERV_DESC", "Allow reservations to proceed" );

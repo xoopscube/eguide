@@ -111,6 +111,9 @@ WHERE ((expire>=edate AND expire>$now)
 			$event = array();
 			$title = $myts->makeTboxData4Show( $myrow["title"] );
 			if ( XOOPS_USE_MULTIBYTES ) {
+				/**
+				 * @brief mb_strcut() extracts a substring from a string similarly to mb_substr(), but operates on bytes instead of characters
+				 */
 				if ( function_exists( 'mb_strcut' ) && strlen( $title ) >= $nlen ) {
 					$title = $myts->makeTboxData4Show( mb_strcut( $myrow['title'], 0, $nlen - 1, _CHARSET ) ) . "...";
 				}
@@ -174,13 +177,13 @@ WHERE ((expire>=edate AND expire>$now)
 		$typesel .= "</select>";
 
 		return _BLOCK_EV_STYLE . "&nbsp;" .
-		       "<input type='radio' name='options[]' value='1'$sel0 />" . _YES . " &nbsp; \n" .
-		       "<input type='radio' name='options[]' value='0'$sel1 />" . _NO . "<br/>\n" .
-		       _BLOCK_EV_ITEMS . "&nbsp;<input name='options[]' value='$nitem' /><br/>\n" .
-		       _BLOCK_EV_TRIM . "&nbsp;<input name='options[]' value='$nlen' /><br/>\n" .
-		       _BLOCK_EV_LISTTYPE . "&nbsp;$typesel<br/>\n" .
-		       _BLOCK_EV_CATEGORY . "&nbsp;<input name='options[]' value='$cat' />\n" .
-		       "<input type='hidden' name='options[]' value='$cat' />\n";
+		       "<input type='radio' name='options[]' value='1' $sel0>" . _YES . " &nbsp; \n" .
+		       "<input type='radio' name='options[]' value='0' $sel1>" . _NO . "<br>\n" .
+		       _BLOCK_EV_ITEMS . "&nbsp;<input name='options[]' value='$nitem'><br>\n" .
+		       _BLOCK_EV_TRIM . "&nbsp;<input name='options[]' value='$nlen'><br>\n" .
+		       _BLOCK_EV_LISTTYPE . "&nbsp;$typesel<br>\n" .
+		       _BLOCK_EV_CATEGORY . "&nbsp;<input name='options[]' value='$cat'>\n" .
+		       "<input type='hidden' name='options[]' value='$cat'>\n";
 
 	}
 

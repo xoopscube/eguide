@@ -152,7 +152,8 @@ switch ( $op ) {
 					}
 					$xoopsMailer->setFromEmail( $xoopsConfig['adminmail'] );
 					$xoopsMailer->setFromName( eguide_from_name() );
-					if ( ! in_array( $xoopsModuleConfig['notify_group'], $poster->groups() ) ) {
+					//if ( ! in_array( $xoopsModuleConfig['notify_group'], $poster->groups() ) ) {
+					if ( ! in_array( $xoopsModuleConfig['notify_group'], $poster->getGroups() ) ) {
 						$xoopsMailer->setToUsers( $poster );
 					}
 					$member_handler =& xoops_gethandler( 'member' );
@@ -202,11 +203,14 @@ switch ( $op ) {
 }
 
 include 'reserv_func.php';
+
 include( XOOPS_ROOT_PATH . "/header.php" );
 
 assign_module_css();
+
 $eid  = param( 'eid' );
 $exid = param( 'sub' );
+
 $errs = array();
 
 switch ( $op ) {
@@ -227,15 +231,15 @@ switch ( $op ) {
 			$persons = $data['persons'];
 			$num     = 1;
 			if ( $nlab && isset( $vals[ $nlab ] ) ) {
-				$num = intval( $vals[ $nlab ] );
+				$num = (int) $vals[ $nlab ];
 				if ( $num < 1 ) {
 					$num = 1;
 				}
 			}
 			if ( ! count_reserved( $eid, $exid, $strict, $persons, $num ) ) {
 				$a = '/^https?:' . preg_quote( preg_replace( '/^https?:/', '', XOOPS_URL ), '/' ) . '/';
-				// NOTE: Reservation failer in race others,
-				//     in other case not send referer. (counter by XSS)
+				// NOTE: Reservation failure in other types of settings,
+				//     otherwise, do not send a referrer. (counter by XSS)
 				$errs[] = preg_match( $a, $_SERVER['HTTP_REFERER'] ) ? _MD_RESERV_FULL : 'REFERER ' . _ERRORS;
 			}
 

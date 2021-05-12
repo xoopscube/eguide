@@ -22,7 +22,7 @@ $max  = $xoopsModuleConfig['max_event'];
 $cond = 'status=' . STAT_NORMAL;
 
 if ( empty( $prev ) ) {
-	// show upcomming event (constant is gurd value)
+	// show upcoming event (constant is guard value)
 	$cond .= " AND ((expire>=edate AND expire>$now) OR (expire<edate AND (IF(exdate,exdate,edate)+expire)>$now))";
 	//$cond .= " AND (exdate>$now OR exdate IS NULL)";
 	$start = ( empty( $page ) ? 0 : $page - 1 ) * $max;
@@ -37,6 +37,8 @@ if ( empty( $prev ) ) {
 }
 
 $catlist = get_eguide_category();
+
+
 $catid   = isset( $_GET['cat'] ) && preg_match( '/^(\d+,)*\d+$/', $_GET['cat'] ) ? $_GET['cat'] : 0;
 if ( isset( $catlist[ $catid ] ) ) {
 	$vals = array( $catid );
@@ -52,7 +54,7 @@ if ( isset( $catlist[ $catid ] ) ) {
 	$opt = $catid ? ' AND topicid IN (' . $catid . ')' : '';
 }
 
-$fields = "e.eid, cdate, title, summary, closetime,
+$fields = "e.eid, cdate, title, summary, emap, closetime,
 IF(expersons IS NULL,persons, expersons) persons,
 IF(exdate,exdate,edate) edate, 
 IF(x.reserved,x.reserved,o.reserved) reserved,
@@ -92,7 +94,9 @@ include XOOPS_ROOT_PATH . '/header.php';
 $xoopsOption['template_main'] = EGPREFIX . '_index.html';
 
 $xoopsTpl->assign( 'events', $events );
+
 assign_module_css();
+
 if ( count( $catlist ) > 1 ) {
 	foreach ( $catlist as $id => $cat ) {
 		if ( $cat['catpri'] ) {
@@ -103,7 +107,7 @@ if ( count( $catlist ) > 1 ) {
 		array(
 			'options' => $catlist,
 			'action'  => 'index.php',
-			'dirname' => basename( dirname( __FILE__ ) )
+			'dirname' => basename( __DIR__ )
 		) );
 }
 

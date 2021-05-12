@@ -40,7 +40,7 @@ if ( isset( $_POST['eid'] ) ) {
 			}
 		}
 		if ( count_reserved( $eid, $exid, $strict, $persons, $num ) ) {
-			srand();
+			mt_srand();
 			$data['confirm'] = $conf = random_int( 10000, 99999 );
 			$email           = param( 'email', '' );
 			$ml              = $xoopsDB->quoteString( $email );
@@ -78,12 +78,14 @@ $xoopsTpl->assign( 'event', $data );
 if ( $errs ) {
 	$xoopsTpl->assign( 'errors', $errs );
 }
+
 // check pical exists
 $module_handler =& xoops_gethandler( 'module' );
 $module         =& $module_handler->getByDirname( PICAL );
 if ( is_object( $module ) && $module->getVar( 'isactive' ) == 1 ) {
 	$xoopsTpl->assign( 'caldate', formatTimestamp( $data['edate'], 'Y-m-d' ) );
 }
+
 // page title
 $xoopsTpl->assign( 'xoops_pagetitle', $xoopsModule->getVar( 'name' ) . " | " . _MD_RESERVATION );
 if ( $data['closedate'] < $now && ! $data['past_register'] ) {

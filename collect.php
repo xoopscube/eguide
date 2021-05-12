@@ -13,7 +13,7 @@ if ( isset( $_POST['persons'] ) ) {
 		if ( $v == '' ) {
 			$v = 'null';
 		} else {
-			$v = intval( $v );
+			$v = (int) $v;
 		}
 		if ( preg_match( '/^(\\d+)-(\\d+)$/', $k, $d ) ) {
 			$eid  = (int) $d[1];

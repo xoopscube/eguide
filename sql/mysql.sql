@@ -19,6 +19,7 @@ CREATE TABLE eguide
     status  tinyint(1)      NOT NULL default '0',
     summary text            NOT NULL,
     body    text            NOT NULL,
+    emap     text           NOT NULL,
     counter int(8) unsigned NOT NULL default '0',
     topicid int(8) unsigned NOT NULL default '1',
     PRIMARY KEY (eid)

@@ -26,10 +26,10 @@ define( "_MI_EGUIDE_HEADLINE3_DESC", "List of closed events." );
 define( "_MI_EGUIDE_CATBLOCK", "Event Category" );
 define( "_MI_EGUIDE_CATBLOCK_DESC", "Choose event category" );
 
-define( "_MI_EGUIDE_EVENTS", "Event article Operation" );
+define( "_MI_EGUIDE_EVENTS", "Event Management" );
 define( "_MI_EGUIDE_NOTIFIES", "&#9993; Notify New registers" );
 define( "_MI_EGUIDE_CATEGORY", "Event Categories" );
-define( "_MI_EGUIDE_SUMMARY", "Summary of Reservation" );
+define( "_MI_EGUIDE_SUMMARY", "Reservation Summary" );
 define( "_MI_EGUIDE_CATEGORY_MARK", "Category - " );
 define( "_MI_EGUIDE_ABOUT", "about eguide" );
 
@@ -41,7 +41,7 @@ define( "_MI_EGUIDE_NOTIFYADMIN_DESC", "Notification sent to the administrator w
 define( "_MI_EGUIDE_NOTIFY_ALWAYS", "Always" );
 define( "_MI_EGUIDE_NOTIFYGROUP", "Group of administrators for the notification" );
 define( "_MI_EGUIDE_NOTIFYGROUP_DESC", "The group of administrators to send a notification email to." );
-define( "_MI_EGUIDE_NEEDPOSTAUTH", "New Event Approval Process" );
+define( "_MI_EGUIDE_NEEDPOSTAUTH", "Event Approval Process" );
 define( "_MI_EGUIDE_NEEDPOSTAUTH_DESC", "New events must be approved by the site administrator" );
 define( "_MI_EGUIDE_MAX_LISTITEM", "Show additional items in the list" );
 define( "_MI_EGUIDE_MAX_LISTITEM_DESC", "Display additional items in the list, additional input order form." );

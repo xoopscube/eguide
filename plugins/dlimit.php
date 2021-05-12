@@ -13,16 +13,16 @@
 /* PLUGIN GENERAL SPECS
      filename ::= basename + '.php'
 
-   hooked funcitons (
+   hooked functions (
      check   ... when reservation form display
      reserve ... when reservation sending
      cancel  ... when reservation canceled
 
    function results
      true: can reservation
-     false: cann't reservation
+     false: can't reservation
 
-   side effect (typicaly)
+   side effect (typically)
      assign template vars 'message' when false results.
 
    function name as:
@@ -72,6 +72,7 @@ function eguide_dlimit_check( $eid, $exid, $poster ) {
 
 		return false;
 	}
+
 	// need points for order
 	$limit = eguide_form_options( 'max_register_in_day', 1 );
 	$nrec  = eguide_dlimit_condition( $eid, $exid );

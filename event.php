@@ -24,6 +24,7 @@ if ( is_object( $xoopsUser ) ) {
 }
 
 set_next_event();
+
 $data = fetch_event( $eid, $exid, $isadmin );
 if ( empty( $data ) ) {
 	redirect_header( EGUIDE_URL . '/index.php', 3, _NOPERM );

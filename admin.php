@@ -35,7 +35,7 @@ $iargs = array(
 	'style'
 ); // integer value default '0'
 
-$targs = array( 'title', 'summary', 'body', 'optfield', 'before' );
+$targs = array( 'title', 'summary', 'body','emap', 'optfield', 'before' );
 
 define( "_EG_OPTDEFS", "redirect=" . _MD_RESERV_REDIRECT . ",text\n" );
 
@@ -59,6 +59,7 @@ if ( $op == 'new' ) {
 		'summary'         => '',
 		'body'            => '',
 		'body_editor'     => $xoopsModuleConfig['body_editor'],//ckeditor
+		'emap'            => '',
 		'counter'         => 0,
 		'reserved'        => 0,
 		'edate'           => time() + 3600 * 24, // now + a day
@@ -68,7 +69,9 @@ if ( $op == 'new' ) {
 		'optvars'         => '',
 		'topicid'         => 1
 	);
+
 } else {
+
 	if ( $eid ) {
 		$result = $xoopsDB->query( 'SELECT * FROM ' . EGTBL . ' e LEFT JOIN ' . OPTBL . ' o ON e.eid=o.eid LEFT JOIN ' . CATBL . " ON topicid=catid WHERE e.eid=$eid" );
 		$data   = $xoopsDB->fetchArray( $result );
@@ -76,7 +79,9 @@ if ( $op == 'new' ) {
 	} else {
 		$data = array();
 	}
+
 	$data['lang_event_edit'] = _MD_EDITARTICLE;
+
 	if ( $op == 'preview' || $op == 'save' || $op == 'date' ) {
 		$edate = getDateField( "edate" );
 		if ( isset( $_POST['expire'] ) ) {
@@ -101,6 +106,7 @@ if ( $op == 'new' ) {
 		$data['optvars'] = post_optvars( _EG_OPTDEFS );
 	}
 }
+
 if ( ! isset( $data['status'] ) ) {
 	$data['status'] = $xoopsModuleConfig['auth'] ? STAT_POST : STAT_NORMAL;
 }
@@ -112,6 +118,7 @@ if ( isset( $_POST['extent_sets'] ) ) {
 } else {
 	$init = true;
 }
+
 $input_extent = '';
 if ( $eid ) {            // already exists extents
 	$result = $xoopsDB->query( 'SELECT rvid FROM ' . RVTBL . " WHERE eid=$eid AND exid=0", 1 );
@@ -173,6 +180,7 @@ if ( $eid ) {            // already exists extents
 
 $now = time();
 
+
 if ( $op == 'save' || $op == 'date' ) {
 	// database field names
 	$updated = "";
@@ -182,6 +190,7 @@ if ( $op == 'save' || $op == 'date' ) {
 		'expire'  => _MD_EVENT_EXPIRE,
 		'summary' => _MD_INTROTEXT,
 		'body'    => _MD_EXTEXT,
+		'emap'    => _MD_EVENT_MAP,
 		'style'   => _MD_EVENT_STYLE,
 		'status'  => $ev_stats[ STAT_NORMAL ],
 		'topicid' => _MD_EVENT_CATEGORY
@@ -244,6 +253,8 @@ if ( $op == 'save' || $op == 'date' ) {
 		'closetime'   => _MD_CLOSEDATE,
 		'optvars'     => _MD_OPTION_VARS
 	);
+
+
 	if ( $xoopsDB->getRowsNum( $result ) ) {
 		$pdata = $xoopsDB->fetchArray( $result );
 		$buf   = "";
@@ -267,6 +278,7 @@ if ( $op == 'save' || $op == 'date' ) {
 			}
 		}
 		$xoopsDB->query( 'UPDATE ' . OPTBL . " SET $buf WHERE eid=$eid" );
+
 	} else {
 		$keys  = array_keys( $ofields );
 		$flist = 'eid, ' . implode( ', ', $keys );
@@ -292,6 +304,7 @@ if ( $op == 'save' || $op == 'date' ) {
 		redirect_header( EGUIDE_URL . "/event.php?eid=$eid", 2, _MD_DBUPDATED );
 	}
 	exit;
+
 } elseif ( $op == 'confirm' ) {
 	if ( $adm ) {            // delete by admin
 		$result = $xoopsDB->query( 'DELETE FROM ' . EGTBL . " WHERE eid=$eid" );
@@ -354,15 +367,18 @@ if ( $eid && $op == 'delete' ) {
 	unset( $data['eid'] );    // disable control link
 	$xoopsTpl->assign( 'event', $data );
 	$xoopsTpl->assign( 'message', "<div><form action='admin.php' method='post'>
-<input type='hidden' name='op' value='confirm' />
-<input type='hidden' name='eid' value='$eid' />
-<input type='submit' value='" . _DELETE . "' />
+<input type='hidden' name='op' value='confirm'>
+<input type='hidden' name='eid' value='$eid'>
+<input type='submit' value='" . _DELETE . "'>
 </form><b>" . _MD_EVENT_DEL_DESC . "</b></div>\n" .
 	                              ( ( $adm ) ? "<div class='evnote'>" . _MD_EVENT_DEL_ADMIN . "</div>\n" : '' ) );
 } else {
+
+	// TODO add description and switch onchange!
+
 	$expire       = $data['expire'] > $data['edate'] ? $data['expire'] - $data['edate'] : $data['expire'];
 	$str          = isset( $expire_set["+$expire"] ) ? "" : htmlspecialchars( time_to_str( $expire ) );
-	$input_expire = "<input name='expire_text' size='8' value='$str' onchange='document.evform.expire.selectedIndex=0' /> " .
+	$input_expire = "<input type='text' name='expire_text' size='8' value='$str' onchange='document.evform.expire.selectedIndex=0'> " .
 	                select_list( 'expire', $expire_set, $expire );
 
 	$cats = get_eguide_category();
@@ -379,6 +395,7 @@ if ( $eid && $op == 'delete' ) {
 			'title',
 			'summary',
 			'body',
+			'emap',
 			'persons',
 			'reserved',
 			'closetime',
@@ -389,6 +406,7 @@ if ( $eid && $op == 'delete' ) {
 			'catimg',
 			'catname'
 		);
+
 		$event = array();
 		if ( empty( $data['cdate'] ) ) {
 			$data['cdate']    = $now;
@@ -402,11 +420,16 @@ if ( $eid && $op == 'delete' ) {
 		foreach ( $views as $name ) {
 			$event[ $name ] = $data[ $name ];
 		}
+
 		edit_eventdata( $event );
+
 		$form                = eventform( $uid, $data );
+
 		$form['submit_opts'] = 'disabled';
+
 		$xoopsTpl->assign( 'form', $form );
 		$xoopsTpl->assign( 'event', $event );
+
 	} else {
 		$xoopsTpl->assign( 'event', '' );
 	}
@@ -415,11 +438,16 @@ if ( $eid && $op == 'delete' ) {
 	if ( empty( $data['before'] ) ) {
 		$data['before'] = time_to_str( $data['closetime'] );
 	}
+
 	edit_eventdata( $data );
+
 	$data['optfield'] = htmlspecialchars( $data['optfield'] );
+
 	$xoopsTpl->assign( $data );
 
+
 	class myFormDhtmlTextArea extends XoopsFormDhtmlTextArea {
+
 		function _renderSmileys() {
 		} // only disable smileys
 	}
@@ -496,6 +524,7 @@ set_eguide_breadcrumbs( $cid, $paths );
 
 include( XOOPS_ROOT_PATH . "/footer.php" );
 
+
 // make to unix time from separate fields.
 function getDateField( $p ) {
 	global $xoopsUser;
@@ -523,6 +552,11 @@ function datefield( $prefix, $time, $hastime = true ) {
 		});
 	});
 	</script>";
+	/**
+	 * @NOTE
+	 * @brief Use input type='text' for jQueryUI
+	 *        and input type='date' for browser native calendar
+	 */
 	$buf .= "<input type='text' id='${prefix}ymd' name='${prefix}ymd' size='12' value='" . formatTimestamp( $time, "Y-m-d" ) . "'> - " . _MD_CAL . " -";
 
 	return $buf;

@@ -27,7 +27,7 @@ define('_MI_EGUIDE_HEADLINE3_DESC','Liste des événements déjà terminés');
 define('_MI_EGUIDE_CATBLOCK','Catégorie d\'événement');
 define('_MI_EGUIDE_CATBLOCK_DESC','Choisir une catégorie d\'événement');
 
-define( "_MI_EGUIDE_EVENTS", "Event article Operation" );
+define( "_MI_EGUIDE_EVENTS", "Gestion" );
 define('_MI_EGUIDE_NOTIFIES','Notifier les nouveaux enregistrés');
 define('_MI_EGUIDE_CATEGORY','Catégories de l\'événement');
 define('_MI_EGUIDE_SUMMARY','Résumé des réservations');

@@ -26,7 +26,7 @@ define( "_MI_EGUIDE_HEADLINE3_DESC", "Evento Lista de los ya terminados" );
 define( "_MI_EGUIDE_CATBLOCK", "Evento Categoria" );
 define( "_MI_EGUIDE_CATBLOCK_DESC", "Elija caso de la categoria" );
 
-define( "_MI_EGUIDE_EVENTS", "Event article Operation" );
+define( "_MI_EGUIDE_EVENTS", "Event Management" );
 define( "_MI_EGUIDE_NOTIFIES", "Notify to New registers" );
 define( "_MI_EGUIDE_CATEGORY", "Categorias de Eventos" );
 define( "_MI_EGUIDE_SUMMARY", "Sumario de Reservacion" );
@@ -47,7 +47,7 @@ define( "_MI_EGUIDE_MAX_LISTITEM", "Display additional items in list" );
 define( "_MI_EGUIDE_MAX_LISTITEM_DESC", "Display items entry order additional form" );
 define( "_MI_EGUIDE_MAX_LISTLINES", "Display list items in a page" );
 define( "_MI_EGUIDE_MAX_LISTLINES_DESC", "How many item lines in a page" );
-define( "_MI_EGUIDE_MAX_EVENT", "Display events in top page" );
+define( "_MI_EGUIDE_MAX_EVENT", "Number of events to show in top page" );
 define( "_MI_EGUIDE_MAX_EVENT_DESC", "Number of listed events in top page" );
 define( "_MI_EGUIDE_SHOW_EXTENTS", "Show Multiple Entry" );
 define( "_MI_EGUIDE_SHOW_EXTENTS_DESC", "When event has multiple entry, show each entris. YES - display each entries. NO - Only show recenet entry." );

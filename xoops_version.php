@@ -388,6 +388,15 @@ $modversion['config'][] = array(
 );
 
 $modversion['config'][] = array(
+	'name'        => 'emap',
+	'title'       => '_MI_EGUIDE_MAP',
+	'description' => '_MI_EGUIDE_MAP_DESC',
+	'formtype'    => 'yesno',
+	'valuetype'   => 'int',
+	'default'     => 1
+);
+
+$modversion['config'][] = array(
 	'name'        => 'use_comment',
 	'title'       => '_MI_EGUIDE_COMMENT',
 	'description' => '_MI_EGUIDE_COMMENT_DESC',
