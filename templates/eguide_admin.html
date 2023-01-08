@@ -1,6 +1,10 @@
 <{* Dev-Mode Toggle *}>
 <div class="ui-dev-mode"><{$smarty.template}></div>
 
+<{if $mod_config.show_breadcrumbs}>
+<{include file="db:eguide_breadcrumbs.html"}>
+<{/if}>
+
 <{if $event}>
 <{include file="db:eguide_event.html"}>
 <{/if}>
@@ -14,6 +18,7 @@
 
     <form action="admin.php<{if $eid}>?eid=<{$eid}><{/if}>" method="post" class="evbody" name="evform" id="evform"
           onsubmit="return xoopsFormValidate_evform();">
+
         <table>
             <tr>
                 <td>
@@ -33,8 +38,8 @@
         <h3><{$smarty.const._MD_EVENT_DATE}></h3>
 
         <label for="datepicker">
-            <{$smarty.const._MD_TIMEC}>
-            <{$input_edate}>
+
+            <{$input_edate}> <{$smarty.const._MD_TIMEC}>
         </label>
 
 
@@ -50,6 +55,7 @@
     		</p> 
 			<{/if}>
 
+
         <fieldset>
             <legend>
                 <script type="text/javascript">
@@ -62,28 +68,35 @@
                 <{$smarty.const._MD_EDIT_EXTENT}>
             </legend>
 
+
             <div id="exdate">
                 <p><b><{$smarty.const._MD_EVENT_EXPIRE}></b> <{$input_expire}></p>
                 <p><b><{$smarty.const._MD_CLOSEBEFORE}></b>
                     <input type="text" name="before" id="before" size="7" value="<{$before}>"/>
                     <span class="evinfo"><{$smarty.const._MD_CLOSEBEFORE_DESC}></span>
                 </p>
+
                 <{if $input_extent}>
-                <p>
+                <div>
                     <b><{$smarty.const._MD_EVENT_EXTENT}></b> <{$input_extent}>
                     <{if $extent_sets}>
-                <div class="extents">
+                    <div class="extents">
                     <{foreach from=$extent_sets item=ext}>
                     <nobr><{if $ext.disable}>&middot; <{else}>
                         <input type="checkbox" value="<{$ext.exdate}>" name="extent_sets[<{$ext.no}>]" <{if $ext.checked}> checked<{/if}>/><{/if}><{$ext.date}>
                     </nobr>
                     <{/foreach}>
+                    </div>
+                    <{/if}>
                 </div>
-                <{/if}>
-                </p>
                 <{/if}>
             </div>
         </fieldset>
+
+
+
+
+
 
 
         <h3><{$smarty.const._MD_INTROTEXT}></h3>
